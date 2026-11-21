@@ -1,0 +1,16 @@
+Source: KStars source tree, in-tree test fixture (file originally saved by KStars/Ekos; kept as test data)
+Repository path: Tests/ekos/scheduler/start_at_finish_at_test.esl
+Root element: <SchedulerList version='1.4'>
+
+Fetched from branch stable-3.8.5 (latest stable release branch, KStars 3.8.5), commit 65977fded4aed4e8d878cebb7df0a6f140782959
+  https://invent.kde.org/education/kstars/-/raw/65977fded4aed4e8d878cebb7df0a6f140782959/Tests/ekos/scheduler/start_at_finish_at_test.esl
+  https://raw.githubusercontent.com/KDE/kstars/65977fded4aed4e8d878cebb7df0a6f140782959/Tests/ekos/scheduler/start_at_finish_at_test.esl
+Byte-identical on master, commit 386d9ffc9f924534000f20f5c9ed1d96be44e9dd (checked 2026-11-21 with diff -r)
+  https://invent.kde.org/education/kstars/-/raw/386d9ffc9f924534000f20f5c9ed1d96be44e9dd/Tests/ekos/scheduler/start_at_finish_at_test.esl
+
+Last commit touching this file: 6c784f09de4379c51208cf72145893a56421dd04 2026-03-21T18:41:30Z Jasem Mutlaq | Test structural overhaul
+First commit at this path (GitHub path history; renames not followed - files were moved here by the 2026-03-21 "Test structural overhaul"):
+  6c784f09de4379c51208cf72145893a56421dd04 2026-03-21T18:41:30Z Jasem Mutlaq | Test structural overhaul
+
+NOTE: the writer on stable-3.8.5/master emits SchedulerList version='2.2' / SequenceQueue version='2.6'.
+This fixture's root version shows the KStars format version in use when the file was saved; see FINDINGS.md.

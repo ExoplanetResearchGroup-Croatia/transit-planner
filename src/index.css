@@ -1,0 +1,123 @@
+@import 'tailwindcss';
+
+/*
+ * Theme tokens. Dark is the default; [data-theme='night'] remaps every colour
+ * to dim reds so the screen does not spoil dark adaptation at the telescope.
+ */
+@theme inline {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-bg: var(--c-bg);
+  --color-panel: var(--c-panel);
+  --color-panel-2: var(--c-panel-2);
+  --color-line: var(--c-line);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-faint: var(--c-faint);
+  --color-accent: var(--c-accent);
+  --color-accent-fg: var(--c-accent-fg);
+  --color-accent-2: var(--c-accent-2);
+  --color-ok: var(--c-ok);
+  --color-warn: var(--c-warn);
+  --color-bad: var(--c-bad);
+  --color-sky-day: var(--c-sky-day);
+  --color-sky-civil: var(--c-sky-civil);
+  --color-sky-nautical: var(--c-sky-nautical);
+  --color-sky-astro: var(--c-sky-astro);
+  --color-sky-dark: var(--c-sky-dark);
+}
+
+:root {
+  color-scheme: dark;
+  --c-bg: #0a0d13;
+  --c-panel: #11161f;
+  --c-panel-2: #171e2a;
+  --c-line: #252f3f;
+  --c-fg: #e2e7ef;
+  --c-muted: #8d98aa;
+  --c-faint: #5a6476;
+  --c-accent: #f0b54a;
+  --c-accent-fg: #1b1306;
+  --c-accent-2: #6cc5d3;
+  --c-ok: #5cc28c;
+  --c-warn: #e5a23d;
+  --c-bad: #ee6262;
+  --c-sky-day: #2b3a55;
+  --c-sky-civil: #1f2a40;
+  --c-sky-nautical: #171f30;
+  --c-sky-astro: #111723;
+  --c-sky-dark: #0a0d13;
+}
+
+:root[data-theme='night'] {
+  --c-bg: #000000;
+  --c-panel: #0b0000;
+  --c-panel-2: #120101;
+  --c-line: #3a0b08;
+  --c-fg: #d8392c;
+  --c-muted: #93261d;
+  --c-faint: #5c160f;
+  --c-accent: #ff3b2b;
+  --c-accent-fg: #000000;
+  --c-accent-2: #a8261b;
+  --c-ok: #c4321f;
+  --c-warn: #e0402c;
+  --c-bad: #ff2414;
+  --c-sky-day: #2a0503;
+  --c-sky-civil: #1d0302;
+  --c-sky-nautical: #130201;
+  --c-sky-astro: #0a0100;
+  --c-sky-dark: #000000;
+}
+
+html,
+body {
+  background: var(--c-bg);
+  color: var(--c-fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  opacity: 0.4;
+}
+
+/* Aladin Lite in red night mode */
+:root[data-theme='night'] .sky-view canvas {
+  filter: grayscale(1) sepia(1) hue-rotate(-40deg) saturate(6) brightness(0.55);
+}
+
+@media print {
+  :root,
+  :root[data-theme='night'] {
+    --c-bg: #ffffff;
+    --c-panel: #ffffff;
+    --c-panel-2: #f3f4f6;
+    --c-line: #d1d5db;
+    --c-fg: #111111;
+    --c-muted: #444444;
+    --c-faint: #777777;
+    --c-accent: #b7791f;
+    --c-accent-2: #2c7a7b;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+.print-only {
+  display: none;
+}

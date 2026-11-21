@@ -1,0 +1,43 @@
+name: Refresh catalog snapshot
+
+# Replaces the Netlify scheduled function of the original plan. Fetches NASA
+# Exoplanet Archive + ExoClock + TOI, normalizes, and commits public/data/*.json
+# only when the data changed. Manual for now; uncomment the schedule to run daily.
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '17 4 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run catalog:build
+      # the snapshot must pass the same checks as in CI before it is committed
+      - run: npm test
+      - run: npm run validate:data
+      - name: Commit snapshot if the data changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/data/catalog.json public/data/toi.json public/data/catalog-meta.json
+          if git diff --cached --quiet; then
+            echo 'Catalog unchanged.'
+          else
+            git commit -m "data: refresh catalog snapshot $(date -u +%F)"
+            git push
+          fi

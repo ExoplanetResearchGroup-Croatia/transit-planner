@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SchedulerList version='2.2'>
+<Profile>Default</Profile>
+<Job>
+<JobType lead='true'/>
+<Name>WASP-12 b</Name>
+<Group>Transits</Group>
+<Coordinates>
+<J2000RA>6.5091083</J2000RA>
+<J2000DE>29.672278</J2000DE>
+</Coordinates>
+<PositionAngle>0</PositionAngle>
+<Sequence>/home/obs/transit.esq</Sequence>
+<StartupCondition>
+<Condition value='2026-11-21T19:30:00'>At</Condition>
+</StartupCondition>
+<Constraints>
+<Constraint value='25'>MinimumAltitude</Constraint>
+</Constraints>
+<CompletionCondition>
+<Condition value='2026-11-22T01:30:00'>At</Condition>
+</CompletionCondition>
+<Steps>
+<Step>Track</Step>
+<Step>Focus</Step>
+<Step>Align</Step>
+<Step>Guide</Step>
+</Steps>
+</Job>
+<Job>
+<JobType lead='true'/>
+<Name>Test &amp; &lt;b&gt;</Name>
+<Group>Transits</Group>
+<Coordinates>
+<J2000RA>21.5575</J2000RA>
+<J2000DE>-0.8232</J2000DE>
+</Coordinates>
+<PositionAngle>0</PositionAngle>
+<Sequence>/home/obs/transit.esq</Sequence>
+<StartupCondition>
+<Condition value='2026-11-21T19:30:00'>At</Condition>
+</StartupCondition>
+<Constraints>
+<Constraint value='25'>MinimumAltitude</Constraint>
+</Constraints>
+<CompletionCondition>
+<Condition value='2026-11-22T01:30:00'>At</Condition>
+</CompletionCondition>
+<Steps>
+<Step>Track</Step>
+<Step>Focus</Step>
+<Step>Align</Step>
+<Step>Guide</Step>
+</Steps>
+</Job>
+<Job>
+<JobType lead='true'/>
+<Name>WASP-19 b</Name>
+<Group>Transits</Group>
+<Coordinates>
+<J2000RA>9.8944467</J2000RA>
+<J2000DE>-45.659167</J2000DE>
+</Coordinates>
+<PositionAngle>0</PositionAngle>
+<Sequence>/home/obs/transit.esq</Sequence>
+<StartupCondition>
+<Condition value='2026-11-22T01:30:00'>At</Condition>
+</StartupCondition>
+<Constraints>
+<Constraint value='25'>MinimumAltitude</Constraint>
+</Constraints>
+<CompletionCondition>
+<Condition value='2026-11-22T07:30:00'>At</Condition>
+</CompletionCondition>
+<Steps>
+<Step>Track</Step>
+<Step>Focus</Step>
+<Step>Align</Step>
+<Step>Guide</Step>
+</Steps>
+</Job>
+<SchedulerAlgorithm value='1'/>
+<ErrorHandlingStrategy value='0'>
+<delay>0</delay>
+</ErrorHandlingStrategy>
+<StartupProcedure enabled='false'>
+</StartupProcedure>
+<ShutdownProcedure enabled='false'>
+</ShutdownProcedure>
+</SchedulerList>
