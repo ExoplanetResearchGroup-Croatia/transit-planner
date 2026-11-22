@@ -13,7 +13,6 @@ import type { ExposureRow } from '../lib/equipment/exposure';
 import { DEFAULT_EXPOSURE_TABLE } from '../lib/equipment/exposure';
 import type { EkosFormat } from '../lib/export/ekos';
 import { DEFAULT_FILTERS, DEFAULT_MOUNT } from './defaults';
-import type { StepId } from '../strings';
 import type { Target, CatalogSourceInfo } from '../lib/catalog/types';
 
 export interface SiteProfile extends Site {
@@ -52,8 +51,17 @@ export interface Settings {
   exportSettings: ExportSettings;
 }
 
+export type Route = 'plan' | 'setup';
+export type ModalId = 'location' | 'equipment' | 'nights' | 'filters' | 'export' | null;
+
 export interface Runtime {
-  step: StepId;
+  route: Route;
+  modal: ModalId;
+  /** manual schedule changes; the rest of the plan is chosen automatically */
+  picks: string[];
+  drops: string[];
+  focusId: string | null;
+  geo: 'idle' | 'locating' | 'failed';
   catalog: { status: 'idle' | 'loading' | 'ready' | 'error'; targets: Target[]; generated: string | null; sources: CatalogSourceInfo[] };
   toi: { status: 'idle' | 'loading' | 'ready' | 'error'; targets: Target[] };
   result: PlanResult | null;
@@ -61,7 +69,6 @@ export interface Runtime {
   computing: boolean;
   progress: number;
   selected: string[];
-  detailId: string | null;
   pendingShareSelection: string[] | null;
   /** official equipment catalog (public/data/equipment.json), loaded at start */
   official: EquipmentFile | null;
@@ -103,14 +110,18 @@ type Store = Settings &
     activeSite: () => SiteProfile | null;
     upsertSite: (s: SiteProfile) => void;
     deleteSite: (id: string) => void;
-    toggleSelected: (id: string) => void;
   };
 
 export const useStore = create<Store>()(
   persist(
     (set, get) => ({
       ...DEFAULT_SETTINGS,
-      step: 'location',
+      route: 'plan',
+      modal: null,
+      picks: [],
+      drops: [],
+      focusId: null,
+      geo: 'idle',
       catalog: { status: 'idle', targets: [], generated: null, sources: [] },
       toi: { status: 'idle', targets: [] },
       result: null,
@@ -118,7 +129,6 @@ export const useStore = create<Store>()(
       computing: false,
       progress: 0,
       selected: [],
-      detailId: null,
       pendingShareSelection: null,
       official: null,
       set: (patch) => set(patch),
@@ -131,7 +141,6 @@ export const useStore = create<Store>()(
           const sites = s.sites.filter((x) => x.id !== id);
           return { sites, activeSiteId: s.activeSiteId === id ? (sites[0]?.id ?? null) : s.activeSiteId };
         }),
-      toggleSelected: (id) => set((s) => ({ selected: s.selected.includes(id) ? s.selected.filter((x) => x !== id) : [...s.selected, id] })),
     }),
     {
       name: 'transit-planner:v1',

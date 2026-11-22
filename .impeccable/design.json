@@ -1,0 +1,936 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T23:59:10+00:00",
+  "title": "Design System: TransitPlanner",
+  "seededFrom": {
+    "world": "brand-identity-canon-saville-catalog-sleeve",
+    "seed": "seed:aab70221e8e88db3",
+    "name": "Pulsar Sleeve"
+  },
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Sleeve Black",
+        "canonical": "#0b0b0a",
+        "oklch": "oklch(14.9% 0.002 107)",
+        "cssVar": "--c-bg",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#10100f",
+        "oklch": "oklch(17.3% 0.002 107)",
+        "cssVar": "--c-panel",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Focus Band",
+        "canonical": "#171716",
+        "oklch": "oklch(20.4% 0.002 107)",
+        "cssVar": "--c-panel-2",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#262624",
+        "oklch": "oklch(26.8% 0.004 107)",
+        "cssVar": "--c-line",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a3",
+          "#c9c9c7",
+          "#efefec"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Control Rule",
+        "canonical": "#43433f",
+        "oklch": "oklch(38.2% 0.007 107)",
+        "cssVar": "--c-line-strong",
+        "tonalRamp": [
+          "#0b0b08",
+          "#252522",
+          "#42423e",
+          "#61615d",
+          "#83837e",
+          "#a5a5a1",
+          "#c9c9c5",
+          "#efefea"
+        ]
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Plot White",
+        "canonical": "#ecebe6",
+        "oklch": "oklch(93.9% 0.007 97)",
+        "cssVar": "--c-fg",
+        "tonalRamp": [
+          "#0c0b08",
+          "#262521",
+          "#43423e",
+          "#62615d",
+          "#83827e",
+          "#a6a5a0",
+          "#cac9c4",
+          "#f0eee9"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Label Grey",
+        "canonical": "#9b9a94",
+        "oklch": "oklch(68.5% 0.009 99)",
+        "cssVar": "--c-muted",
+        "tonalRamp": [
+          "#0c0b07",
+          "#262520",
+          "#43423d",
+          "#62615c",
+          "#83827d",
+          "#a6a59f",
+          "#cac9c3",
+          "#f0efe8"
+        ]
+      },
+      "faint": {
+        "role": "neutral",
+        "displayName": "Axis Grey",
+        "canonical": "#7d7c76",
+        "oklch": "oklch(58.5% 0.009 99)",
+        "cssVar": "--c-faint",
+        "tonalRamp": [
+          "#0c0b07",
+          "#262520",
+          "#43423d",
+          "#62615c",
+          "#83827c",
+          "#a6a59f",
+          "#cac9c3",
+          "#f0efe8"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "#e8402c",
+        "oklch": "oklch(59.6% 0.214 30)",
+        "cssVar": "--c-red",
+        "tonalRamp": [
+          "#1d0201",
+          "#490a04",
+          "#7a170c",
+          "#af2617",
+          "#e53926",
+          "#fe7561",
+          "#fcb5a8",
+          "#ffe9e5"
+        ]
+      },
+      "yellow": {
+        "role": "secondary",
+        "displayName": "Caution Yellow",
+        "canonical": "#e8b713",
+        "oklch": "oklch(80.1% 0.161 89)",
+        "cssVar": "--c-yellow",
+        "tonalRamp": [
+          "#120a00",
+          "#302300",
+          "#523f06",
+          "#775d0c",
+          "#9e7e1b",
+          "#c6a035",
+          "#e3c67d",
+          "#ffedc1"
+        ]
+      },
+      "blue": {
+        "role": "tertiary",
+        "displayName": "Code Blue",
+        "canonical": "#2f5ed8",
+        "oklch": "oklch(52.4% 0.194 265)",
+        "cssVar": "--c-blue",
+        "tonalRamp": [
+          "#03091f",
+          "#0f214e",
+          "#203c82",
+          "#3259ba",
+          "#4779f4",
+          "#79a2fc",
+          "#b0c9fd",
+          "#e7effe"
+        ]
+      },
+      "grey": {
+        "role": "neutral",
+        "displayName": "Code Grey",
+        "canonical": "#6f6e69",
+        "oklch": "oklch(53.8% 0.008 97)",
+        "cssVar": "--c-grey",
+        "tonalRamp": [
+          "#0c0b08",
+          "#262521",
+          "#43423d",
+          "#62615c",
+          "#83827d",
+          "#a6a5a0",
+          "#cac9c4",
+          "#f0efe9"
+        ]
+      },
+      "plot-dim": {
+        "role": "neutral",
+        "displayName": "Baseline Ghost",
+        "canonical": "#2c2c29",
+        "oklch": "oklch(29.2% 0.005 107)",
+        "cssVar": "--c-plot-dim",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252522",
+          "#42423f",
+          "#61615e",
+          "#82827f",
+          "#a5a5a1",
+          "#c9c9c5",
+          "#efefeb"
+        ]
+      },
+      "plot-mid": {
+        "role": "neutral",
+        "displayName": "Candidate Trace",
+        "canonical": "#85847e",
+        "oklch": "oklch(61.2% 0.009 99)",
+        "cssVar": "--c-plot-mid",
+        "tonalRamp": [
+          "#0c0b07",
+          "#262520",
+          "#43423d",
+          "#62615c",
+          "#83827c",
+          "#a6a59f",
+          "#cac9c3",
+          "#f0efe8"
+        ]
+      },
+      "sky-day": {
+        "role": "neutral",
+        "displayName": "Twilight Step: Day",
+        "canonical": "#22221f",
+        "oklch": "oklch(25.1% 0.006 107)",
+        "cssVar": "--c-sky-day",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252522",
+          "#42423f",
+          "#61615e",
+          "#82837f",
+          "#a5a5a1",
+          "#c9c9c5",
+          "#efefeb"
+        ]
+      },
+      "sky-civil": {
+        "role": "neutral",
+        "displayName": "Twilight Step: Civil",
+        "canonical": "#1a1a18",
+        "oklch": "oklch(21.7% 0.004 107)",
+        "cssVar": "--c-sky-civil",
+        "tonalRamp": [
+          "#0b0b09",
+          "#252523",
+          "#424240",
+          "#61615f",
+          "#828280",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#efefec"
+        ]
+      },
+      "sky-nautical": {
+        "role": "neutral",
+        "displayName": "Twilight Step: Nautical",
+        "canonical": "#141413",
+        "oklch": "oklch(19.1% 0.002 107)",
+        "cssVar": "--c-sky-nautical",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "sky-astro": {
+        "role": "neutral",
+        "displayName": "Twilight Step: Astronomical",
+        "canonical": "#0f0f0e",
+        "oklch": "oklch(16.8% 0.002 107)",
+        "cssVar": "--c-sky-astro",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "sky-dark": {
+        "role": "neutral",
+        "displayName": "Twilight Step: Dark",
+        "canonical": "#0b0b0a",
+        "oklch": "oklch(14.9% 0.002 107)",
+        "cssVar": "--c-sky-dark",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "night-bg": {
+        "role": "neutral",
+        "displayName": "Darkroom Black",
+        "canonical": "#000000",
+        "oklch": "oklch(0.0% 0.000 0)",
+        "cssVar": "--c-bg (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "night-panel": {
+        "role": "neutral",
+        "displayName": "Darkroom Press",
+        "canonical": "#060000",
+        "oklch": "oklch(7.7% 0.031 29)",
+        "cssVar": "--c-panel (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0e0a09",
+          "#2b2321",
+          "#4c3e3c",
+          "#6f5c59",
+          "#947c78",
+          "#b4a09c",
+          "#d5c5c2",
+          "#f7ebe9"
+        ]
+      },
+      "night-panel-2": {
+        "role": "neutral",
+        "displayName": "Darkroom Focus Band",
+        "canonical": "#0d0100",
+        "oklch": "oklch(10.6% 0.035 37)",
+        "cssVar": "--c-panel-2 (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0f0a09",
+          "#2c2320",
+          "#4d3e3a",
+          "#715c56",
+          "#967b74",
+          "#b69f99",
+          "#d7c5bf",
+          "#f8ebe8"
+        ]
+      },
+      "night-line": {
+        "role": "neutral",
+        "displayName": "Darkroom Hairline",
+        "canonical": "#2a0703",
+        "oklch": "oklch(19.4% 0.060 32)",
+        "cssVar": "--c-line (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#110907",
+          "#31201d",
+          "#543b35",
+          "#7b5750",
+          "#a3766c",
+          "#c19b92",
+          "#e0c1ba",
+          "#ffe9e4"
+        ]
+      },
+      "night-line-strong": {
+        "role": "neutral",
+        "displayName": "Darkroom Control Rule",
+        "canonical": "#4c0f08",
+        "oklch": "oklch(27.7% 0.092 30)",
+        "cssVar": "--c-line-strong (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#140706",
+          "#361d19",
+          "#5d362f",
+          "#875047",
+          "#b26d61",
+          "#cf9489",
+          "#ecbcb4",
+          "#fde9e5"
+        ]
+      },
+      "night-fg": {
+        "role": "neutral",
+        "displayName": "Darkroom Red",
+        "canonical": "#d63a2b",
+        "oklch": "oklch(58.2% 0.195 30)",
+        "cssVar": "--c-fg (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#1b0302",
+          "#460e09",
+          "#761e15",
+          "#a92f23",
+          "#de4535",
+          "#f77b69",
+          "#fcb4a8",
+          "#fee9e6"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Darkroom Label",
+        "canonical": "#93281c",
+        "oklch": "oklch(44.4% 0.145 30)",
+        "cssVar": "--c-muted (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#180503",
+          "#3f1711",
+          "#6a2c23",
+          "#994336",
+          "#c95c4c",
+          "#e48879",
+          "#fdb4a7",
+          "#fee9e5"
+        ]
+      },
+      "night-faint": {
+        "role": "neutral",
+        "displayName": "Darkroom Axis",
+        "canonical": "#6e1a10",
+        "oklch": "oklch(35.8% 0.119 30)",
+        "cssVar": "--c-faint (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#160605",
+          "#3b1a15",
+          "#643129",
+          "#914a3e",
+          "#be6556",
+          "#da8e81",
+          "#f5b8ad",
+          "#fee9e5"
+        ]
+      },
+      "night-red": {
+        "role": "primary",
+        "displayName": "Night Signal Red",
+        "canonical": "#ff3a28",
+        "oklch": "oklch(65.3% 0.234 30)",
+        "cssVar": "--c-red (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#1e0100",
+          "#4b0401",
+          "#7e0b04",
+          "#b51508",
+          "#ed2716",
+          "#fc7663",
+          "#fbb5a9",
+          "#ffe9e5"
+        ]
+      },
+      "night-yellow": {
+        "role": "secondary",
+        "displayName": "Night Caution",
+        "canonical": "#b9341f",
+        "oklch": "oklch(52.5% 0.173 32)",
+        "cssVar": "--c-yellow (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#1a0402",
+          "#43130b",
+          "#712519",
+          "#a23928",
+          "#d5513b",
+          "#ef826d",
+          "#fcb5a7",
+          "#ffe9e4"
+        ]
+      },
+      "night-blue": {
+        "role": "tertiary",
+        "displayName": "Night Code Blue",
+        "canonical": "#7c1c12",
+        "oklch": "oklch(38.8% 0.132 30)",
+        "cssVar": "--c-blue (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#170604",
+          "#3d1913",
+          "#672f26",
+          "#95463b",
+          "#c46051",
+          "#df8b7d",
+          "#f9b6aa",
+          "#fee9e5"
+        ]
+      },
+      "night-grey": {
+        "role": "neutral",
+        "displayName": "Night Code Grey",
+        "canonical": "#5e1a10",
+        "oklch": "oklch(32.8% 0.101 31)",
+        "cssVar": "--c-grey (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#140705",
+          "#381c17",
+          "#5f342d",
+          "#8a4e44",
+          "#b66b5d",
+          "#d39286",
+          "#eebbb1",
+          "#ffe9e4"
+        ]
+      },
+      "night-plot-dim": {
+        "role": "neutral",
+        "displayName": "Night Baseline Ghost",
+        "canonical": "#2c0703",
+        "oklch": "oklch(19.8% 0.063 32)",
+        "cssVar": "--c-plot-dim (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#110907",
+          "#31201d",
+          "#553a35",
+          "#7c574f",
+          "#a4756b",
+          "#c29a92",
+          "#e1c1ba",
+          "#fee9e5"
+        ]
+      },
+      "night-plot-mid": {
+        "role": "neutral",
+        "displayName": "Night Candidate Trace",
+        "canonical": "#7e2116",
+        "oklch": "oklch(39.7% 0.129 30)",
+        "cssVar": "--c-plot-mid (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#170604",
+          "#3c1914",
+          "#662f27",
+          "#94473b",
+          "#c36152",
+          "#de8c7e",
+          "#f8b7ab",
+          "#fee9e5"
+        ]
+      },
+      "night-sky-day": {
+        "role": "neutral",
+        "displayName": "Night Twilight Step: Day",
+        "canonical": "#1c0402",
+        "oklch": "oklch(15.5% 0.046 32)",
+        "cssVar": "--c-sky-day (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#100908",
+          "#2e221f",
+          "#503c38",
+          "#755a54",
+          "#9c7971",
+          "#bb9d97",
+          "#dbc3be",
+          "#fbeae7"
+        ]
+      },
+      "night-sky-civil": {
+        "role": "neutral",
+        "displayName": "Night Twilight Step: Civil",
+        "canonical": "#130201",
+        "oklch": "oklch(12.7% 0.039 31)",
+        "cssVar": "--c-sky-civil (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0f0a09",
+          "#2d2220",
+          "#4e3d3a",
+          "#725b56",
+          "#987a74",
+          "#b89e99",
+          "#d8c4c0",
+          "#f9ebe8"
+        ]
+      },
+      "night-sky-nautical": {
+        "role": "neutral",
+        "displayName": "Night Twilight Step: Nautical",
+        "canonical": "#0c0100",
+        "oklch": "oklch(10.4% 0.034 38)",
+        "cssVar": "--c-sky-nautical (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0e0a09",
+          "#2c2320",
+          "#4d3e3a",
+          "#705c56",
+          "#957c74",
+          "#b5a099",
+          "#d6c5c0",
+          "#f8ebe8"
+        ]
+      },
+      "night-sky-astro": {
+        "role": "neutral",
+        "displayName": "Night Twilight Step: Astronomical",
+        "canonical": "#060000",
+        "oklch": "oklch(7.7% 0.031 29)",
+        "cssVar": "--c-sky-astro (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0e0a09",
+          "#2b2321",
+          "#4c3e3c",
+          "#6f5c59",
+          "#947c78",
+          "#b4a09c",
+          "#d5c5c2",
+          "#f7ebe9"
+        ]
+      },
+      "night-sky-dark": {
+        "role": "neutral",
+        "displayName": "Night Twilight Step: Dark",
+        "canonical": "#000000",
+        "oklch": "oklch(0.0% 0.000 0)",
+        "cssVar": "--c-sky-dark (under :root[data-theme='night'])",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The 96px zero-padded count of scheduled transits in the plan lockup; one per page."
+      },
+      "headline-lg": {
+        "displayName": "Headline Large",
+        "purpose": "The Setup page title."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Each night's zero-padded day numeral on the plot; the Equipment Builder title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The selected transit's name at the top of the data column."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Modal titles."
+      },
+      "index": {
+        "displayName": "Index",
+        "purpose": "Night day numerals in the rail."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Value line of each Setup index row."
+      },
+      "body-dense": {
+        "displayName": "Body Dense",
+        "purpose": "Transit names in the plot label column; data-column values (with tabular figures)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default interface text: inputs, settings-strip values, menu items, sub-lines, intros (60-62ch)."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Badge text, plot legend, footer, chart hints, hour ticks."
+      },
+      "label": {
+        "displayName": "Label (engraved caps)",
+        "purpose": "Uppercase. Field labels, section titles, button text, segmented options, night meta lines, icon-button tooltips."
+      }
+    },
+    "shadows": [
+      {
+        "name": "menu-float",
+        "value": "0 18px 40px rgba(0,0,0,0.55)",
+        "purpose": "The export dropdown only: the one floating layer that opens over the dense plot. Not for sections, modals or tooltips."
+      },
+      {
+        "name": "modal-scrim",
+        "value": "rgba(0,0,0,0.7)",
+        "purpose": "Full-screen scrim behind modals (a backdrop fill, not a box-shadow)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-color",
+        "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Colour, border and background changes on buttons, inputs, segmented options, links, settings cells; disclosure chevron rotation."
+      },
+      {
+        "name": "check",
+        "value": "160ms ease-out",
+        "purpose": "Background and border colour on the square check."
+      },
+      {
+        "name": "plot-reweight",
+        "value": "180ms ease-out",
+        "purpose": "Stroke width, stroke colour and opacity on pulsar-plot traces when scheduling changes or conflicts resolve."
+      },
+      {
+        "name": "spinner",
+        "value": "1s linear infinite rotation",
+        "purpose": "The compute-status loader icon only."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0ms",
+        "purpose": "prefers-reduced-motion: every transition and animation duration is forced to 0ms."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "purpose": "Settings strip to 2 columns; Setup rows to the label/value/action grid; modal field grids to 2 columns."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Rail switches from a top bar to the 76px vertical left rail."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Workspace side padding 17.5px to 28px; Builder splits 1fr / 400px."
+      },
+      {
+        "name": "xl",
+        "value": "1280px",
+        "purpose": "Settings strip to 4 columns; the 380px sticky data column appears at the right."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Hairline rectangle in Plot White with a Signal Red end block on the right; hover inverts the body and the block stays red. The primary action of an area (Export, Schedule, Done, View plan).",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-btn-body\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 15V3\"/><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><path d=\"m7 10 5 5 5-5\"/></svg>Export</span><span class=\"ds-btn-block\" aria-hidden=\"true\"></span></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: stretch; height: 35px; padding: 0; background: transparent; color: var(--c-fg, #ecebe6); border: 1px solid var(--c-fg, #ecebe6); border-radius: 0; cursor: pointer; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary .ds-btn-body { display: flex; align-items: center; gap: 7px; padding: 0 14px; } .ds-btn-primary .ds-btn-block { width: 14px; flex-shrink: 0; background: var(--c-red, #e8402c); } .ds-btn-primary:hover { background: var(--c-fg, #ecebe6); color: var(--c-bg, #0b0b0a); } .ds-btn-primary:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Control Rule hairline with a Plot White caps label and no end block; hover moves the border to Plot White. Edit, Import, Remove from plan.",
+      "html": "<button class=\"ds-btn-secondary\"><span class=\"ds-btn-body\">Edit</span></button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: stretch; height: 35px; padding: 0; background: transparent; color: var(--c-fg, #ecebe6); border: 1px solid var(--c-line-strong, #43433f); border-radius: 0; cursor: pointer; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; transition: border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-secondary .ds-btn-body { display: flex; align-items: center; gap: 7px; padding: 0 14px; } .ds-btn-secondary:hover { border-color: var(--c-fg, #ecebe6); } .ds-btn-secondary:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; } .ds-btn-secondary:disabled { opacity: 0.35; cursor: not-allowed; }"
+    },
+    {
+      "name": "Text Input with Field Label",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Engraved-caps label over a 35px transparent hairline input; hover border Axis Grey, focus border Plot White, no glow. Units sit inside the right edge in Axis Grey.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Latitude</span><span class=\"ds-input-wrap\"><input class=\"ds-input\" value=\"45.3300\" inputmode=\"decimal\"><span class=\"ds-input-unit\">°</span></span></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 5.25px; width: 240px; } .ds-field-label { font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; color: var(--c-muted, #9b9a94); } .ds-input-wrap { position: relative; display: block; } .ds-input { width: 100%; height: 35px; padding: 0 35px 0 10.5px; background: transparent; color: var(--c-fg, #ecebe6); border: 1px solid var(--c-line-strong, #43433f); border-radius: 0; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 12.25px; font-variant-numeric: tabular-nums; caret-color: var(--c-red, #e8402c); transition: border-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-input::placeholder { color: var(--c-faint, #7d7c76); } .ds-input:hover { border-color: var(--c-faint, #7d7c76); } .ds-input:focus { border-color: var(--c-fg, #ecebe6); outline: none; } .ds-input-unit { position: absolute; right: 10.5px; top: 50%; transform: translateY(-50%); color: var(--c-faint, #7d7c76); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 11px; pointer-events: none; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "chip",
+      "refersTo": "segmented-option",
+      "description": "One Control Rule outline split by hairlines; the selected option inverts to a Plot White fill with Sleeve Black caps. Mode, time display, darkness, coverage, modal tabs.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\" aria-label=\"Mode\"><button class=\"ds-seg-opt\" role=\"radio\" aria-checked=\"true\">Photometry</button><button class=\"ds-seg-opt\" role=\"radio\" aria-checked=\"false\">Showcase</button></div>",
+      "css": ".ds-seg { display: inline-flex; border: 1px solid var(--c-line-strong, #43433f); } .ds-seg-opt { height: 35px; padding: 0 14px; background: transparent; color: var(--c-muted, #9b9a94); border: 0; border-radius: 0; cursor: pointer; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; transition: color 150ms cubic-bezier(0.4,0,0.2,1), background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-seg-opt + .ds-seg-opt { border-left: 1px solid var(--c-line-strong, #43433f); } .ds-seg-opt:hover { color: var(--c-fg, #ecebe6); } .ds-seg-opt[aria-checked='true'] { background: var(--c-fg, #ecebe6); color: var(--c-bg, #0b0b0a); } .ds-seg-opt:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; }"
+    },
+    {
+      "name": "Square Check",
+      "kind": "custom",
+      "refersTo": "check",
+      "description": "14px glyphless square; checked fills solid Signal Red. The schedule toggle on every plot row and every boolean in the modals.",
+      "html": "<div class=\"ds-checks\"><label class=\"ds-check-row\"><input type=\"checkbox\" class=\"ds-check\" checked> XO-2 N b</label><label class=\"ds-check-row\"><input type=\"checkbox\" class=\"ds-check\"> TOI-4427 b</label></div>",
+      "css": ".ds-checks { display: flex; flex-direction: column; gap: 10.5px; } .ds-check-row { display: inline-flex; align-items: center; gap: 8.75px; color: var(--c-fg, #ecebe6); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 13px; cursor: pointer; } .ds-check { appearance: none; width: 14px; height: 14px; margin: 0; flex-shrink: 0; border: 1px solid var(--c-line-strong, #43433f); border-radius: 0; background: transparent; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out; } .ds-check:checked { background: var(--c-red, #e8402c); border-color: var(--c-red, #e8402c); } .ds-check:hover { border-color: var(--c-fg, #ecebe6); } .ds-check:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; }"
+    },
+    {
+      "name": "State Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "A 7px solid colour square plus 11px Plot White text; no pill, no fill. Yellow warning, red bad (flip, partial coverage), white ok, grey neutral.",
+      "html": "<div class=\"ds-badges\"><span class=\"ds-badge\"><span class=\"ds-badge-sq ds-warn\"></span>Moon more than 70 % illuminated</span><span class=\"ds-badge\"><span class=\"ds-badge-sq ds-bad\"></span>Meridian flip during transit</span><span class=\"ds-badge\"><span class=\"ds-badge-sq ds-ok\"></span>Valid</span></div>",
+      "css": ".ds-badges { display: flex; flex-direction: column; gap: 5.25px; } .ds-badge { display: inline-flex; align-items: center; gap: 5.25px; color: var(--c-fg, #ecebe6); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 11px; line-height: 1.25; } .ds-badge-sq { width: 7px; height: 7px; flex-shrink: 0; } .ds-warn { background: var(--c-yellow, #e8b713); } .ds-bad { background: var(--c-red, #e8402c); } .ds-ok { background: var(--c-fg, #ecebe6); }"
+    },
+    {
+      "name": "Code Strip and Meter",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "The five-block colour code (grey, blue, yellow, red, white) as brand mark and as a transit's state readout, and the ten-block meter (lit white, red on alert).",
+      "html": "<div class=\"ds-codes\"><span class=\"ds-lockup\">TransitPlanner <span class=\"ds-strip ds-strip-sm\"><i class=\"ds-g\"></i><i class=\"ds-b\"></i><i class=\"ds-y\"></i><i class=\"ds-r\"></i><i class=\"ds-w\"></i></span></span><span class=\"ds-strip\"><i class=\"ds-g\"></i><i class=\"ds-b\"></i><i class=\"ds-y\"></i><i class=\"ds-r\"></i><i class=\"ds-w\"></i></span><span class=\"ds-strip ds-strip-sm\" aria-label=\"Scheduled, with warnings\"><i class=\"ds-off\"></i><i class=\"ds-off\"></i><i class=\"ds-y\"></i><i class=\"ds-r\"></i><i class=\"ds-off\"></i></span><span class=\"ds-meter\" role=\"img\" aria-label=\"Altitude 50°\"><i class=\"ds-on\"></i><i class=\"ds-on\"></i><i class=\"ds-on\"></i><i class=\"ds-on\"></i><i class=\"ds-on\"></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"ds-meter\" role=\"img\" aria-label=\"Moon 90 %\"><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i class=\"ds-alert\"></i><i></i></span></div>",
+      "css": ".ds-codes { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; } .ds-lockup { display: inline-flex; align-items: center; gap: 14px; color: var(--c-fg, #ecebe6); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; } .ds-strip { display: inline-flex; gap: 3.5px; } .ds-strip i { display: block; width: 21px; height: 8.75px; } .ds-strip-sm i { width: 10.5px; height: 5.25px; } .ds-g { background: var(--c-grey, #6f6e69); } .ds-b { background: var(--c-blue, #2f5ed8); } .ds-y { background: var(--c-yellow, #e8b713); } .ds-r { background: var(--c-red, #e8402c); } .ds-w { background: var(--c-fg, #ecebe6); } .ds-off { background: var(--c-line-strong, #43433f); } .ds-meter { display: inline-flex; gap: 3px; } .ds-meter i { display: block; width: 7px; height: 8.75px; background: var(--c-line-strong, #43433f); } .ds-meter i.ds-on { background: var(--c-fg, #ecebe6); } .ds-meter i.ds-alert { background: var(--c-red, #e8402c); }"
+    },
+    {
+      "name": "Night Index Rail",
+      "kind": "nav",
+      "refersTo": "rail-night",
+      "description": "76px left rail: night day numerals in the wide display cut (the active night boxed red), page icon buttons at the foot (the active page red).",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Main\"><ol class=\"ds-rail-nights\"><li><a href=\"#\" class=\"ds-rail-night\" aria-current=\"true\">21</a></li><li><a href=\"#\" class=\"ds-rail-night\">22</a></li><li><a href=\"#\" class=\"ds-rail-night\">23</a></li></ol><div class=\"ds-rail-tools\"><button class=\"ds-icon-btn ds-active\" aria-label=\"Plan\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2\"/></svg></button><button class=\"ds-icon-btn\" aria-label=\"Setup\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 5H3\"/><path d=\"M12 19H3\"/><path d=\"M14 3v4\"/><path d=\"M16 17v4\"/><path d=\"M21 12h-9\"/><path d=\"M21 19h-5\"/><path d=\"M21 5h-7\"/><path d=\"M8 10v4\"/><path d=\"M8 12H3\"/></svg></button></div></nav>",
+      "css": ".ds-rail { display: flex; flex-direction: column; align-items: center; gap: 28px; width: 76px; padding: 17.5px 0; background: var(--c-bg, #0b0b0a); border-right: 1px solid var(--c-line, #262624); } .ds-rail-nights { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; } .ds-rail-night { display: flex; align-items: center; justify-content: center; width: 38.5px; height: 38.5px; border: 1px solid transparent; color: var(--c-fg, #ecebe6); text-decoration: none; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 17px; font-weight: 500; font-stretch: 125%; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; line-height: 0.95; transition: border-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-rail-night:hover { border-color: var(--c-line-strong, #43433f); } .ds-rail-night[aria-current='true'] { border-color: var(--c-red, #e8402c); color: var(--c-red, #e8402c); } .ds-rail-night:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; } .ds-rail-tools { display: flex; flex-direction: column; gap: 7px; } .ds-icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; padding: 0; background: transparent; border: 1px solid var(--c-line-strong, #43433f); border-radius: 0; color: var(--c-muted, #9b9a94); cursor: pointer; transition: border-color 150ms cubic-bezier(0.4,0,0.2,1), color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-icon-btn:hover { border-color: var(--c-fg, #ecebe6); color: var(--c-fg, #ecebe6); } .ds-icon-btn.ds-active { border-color: var(--c-red, #e8402c); color: var(--c-red, #e8402c); } .ds-icon-btn:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; }"
+    },
+    {
+      "name": "Settings Strip",
+      "kind": "card",
+      "refersTo": "settings-cell",
+      "description": "The planner's container idiom: a ruled band of caps-labelled summaries split by vertical hairlines; hover fills Press Black and reveals an Edit cue. No card fill, no radius.",
+      "html": "<div class=\"ds-strip-band\"><button class=\"ds-cell\"><span class=\"ds-cell-label\">Location<span class=\"ds-cell-edit\">Edit</span></span><span class=\"ds-cell-value\">My location · 45.33N 14.44E · CET</span></button><button class=\"ds-cell\"><span class=\"ds-cell-label\">Equipment<span class=\"ds-cell-edit\">Edit</span></span><span class=\"ds-cell-value\">Generic setup</span></button><button class=\"ds-cell\"><span class=\"ds-cell-label\">Nights<span class=\"ds-cell-edit\">Edit</span></span><span class=\"ds-cell-value\">11.21 · 3 nights · −18°</span></button></div>",
+      "css": ".ds-strip-band { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 640px; border-top: 1px solid var(--c-line, #262624); border-bottom: 1px solid var(--c-line, #262624); } .ds-cell { display: flex; flex-direction: column; gap: 5.25px; min-width: 0; padding: 10.5px 14px; background: transparent; border: 0; border-radius: 0; text-align: left; cursor: pointer; transition: background-color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-cell + .ds-cell { border-left: 1px solid var(--c-line, #262624); } .ds-cell:hover { background: var(--c-panel, #10100f); } .ds-cell:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; } .ds-cell-label { display: flex; justify-content: space-between; font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; font-weight: 500; font-stretch: 112%; line-height: 1.3; color: var(--c-muted, #9b9a94); } .ds-cell-edit { color: var(--c-faint, #7d7c76); opacity: 0; transition: opacity 150ms cubic-bezier(0.4,0,0.2,1); } .ds-cell:hover .ds-cell-edit { opacity: 1; } .ds-cell-value { color: var(--c-fg, #ecebe6); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; font-size: 12.25px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }"
+    },
+    {
+      "name": "Pulsar Plot",
+      "kind": "custom",
+      "refersTo": "plot-row",
+      "description": "Signature view: candidate transits as stacked hairline light curves on 40px rows; dips scaled 6 + 40·min(1, log10(1+ppt)/log10(31)) px and filled with the ground so they occlude the rows below; candidates 1px Candidate Trace, scheduled 2.25px Plot White, conflicts dashed 4/3, slew lead-in dashed 2/3, meridian flip as a 2px red tick.",
+      "html": "<div class=\"ds-plot\"><div class=\"ds-plot-col\"><div class=\"ds-plot-label\"><input type=\"checkbox\" class=\"ds-check\" aria-label=\"TOI-4427 b\"><span class=\"ds-plot-name\">TOI-4427 b</span></div><div class=\"ds-plot-label\"><input type=\"checkbox\" class=\"ds-check\" checked aria-label=\"XO-2 N b\"><span class=\"ds-plot-name ds-on\">XO-2 N b</span></div><div class=\"ds-plot-label\"><input type=\"checkbox\" class=\"ds-check\" aria-label=\"TOI-2046 b\"><span class=\"ds-plot-name\">TOI-2046 b</span></div></div><div class=\"ds-plot-area\"><svg class=\"ds-plot-svg\" viewBox=\"0 0 1000 128\" preserveAspectRatio=\"none\" role=\"group\" aria-label=\"Transits on the night\"><line x1=\"0\" x2=\"0\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"125\" x2=\"125\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"250\" x2=\"250\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"375\" x2=\"375\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"500\" x2=\"500\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"625\" x2=\"625\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"750\" x2=\"750\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"875\" x2=\"875\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"1000\" x2=\"1000\" y1=\"0\" y2=\"128\" class=\"ds-grid\"/><line x1=\"0\" x2=\"1000\" y1=\"92\" y2=\"92\" class=\"ds-base\"/><path d=\"M700.0,92 L720.4,129.9 L869.6,129.9 L890.0,92 Z\" class=\"ds-occlude\"/><path d=\"M640,92 L700.0,92 L720.4,129.9 L869.6,129.9 L890.0,92 L950,92\" class=\"ds-trace\"/><line x1=\"0\" x2=\"1000\" y1=\"52\" y2=\"52\" class=\"ds-base\"/><path d=\"M620.0,52 L637.1,86.9 L782.9,86.9 L800.0,52 Z\" class=\"ds-occlude\"/><line x1=\"520\" x2=\"560\" y1=\"52\" y2=\"52\" class=\"ds-slew\"/><path d=\"M560,52 L620.0,52 L637.1,86.9 L782.9,86.9 L800.0,52 L860,52\" class=\"ds-trace ds-on\"/><line x1=\"830\" x2=\"830\" y1=\"46\" y2=\"58\" class=\"ds-flip\"/><line x1=\"0\" x2=\"1000\" y1=\"12\" y2=\"12\" class=\"ds-base\"/><path d=\"M580.0,12 L601.6,52.7 L738.4,52.7 L760.0,12 Z\" class=\"ds-occlude\"/><path d=\"M520,12 L580.0,12 L601.6,52.7 L738.4,52.7 L760.0,12 L820,12\" class=\"ds-trace ds-conflict\"/></svg></div><div class=\"ds-plot-col\"><div class=\"ds-plot-time\">23:46–02:25</div><div class=\"ds-plot-time ds-on\">00:05–02:48</div><div class=\"ds-plot-time\">01:02–03:31</div></div></div>",
+      "css": ".ds-plot { display: grid; grid-template-columns: 140px minmax(0, 1fr) 96px; column-gap: 14px; width: 640px; padding: 7px 0; background: var(--c-bg, #0b0b0a); font-family: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif; } .ds-plot-label, .ds-plot-time { height: 40px; display: flex; align-items: center; } .ds-plot-label { gap: 8.75px; } .ds-plot-name { font-size: 13px; color: var(--c-muted, #9b9a94); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-plot-name.ds-on { color: var(--c-fg, #ecebe6); } .ds-plot-time { justify-content: flex-end; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--c-faint, #7d7c76); } .ds-plot-time.ds-on { color: var(--c-fg, #ecebe6); } .ds-check { appearance: none; width: 14px; height: 14px; margin: 0; flex-shrink: 0; border: 1px solid var(--c-line-strong, #43433f); border-radius: 0; background: transparent; cursor: pointer; transition: background-color 160ms ease-out, border-color 160ms ease-out; } .ds-check:checked { background: var(--c-red, #e8402c); border-color: var(--c-red, #e8402c); } .ds-check:hover { border-color: var(--c-fg, #ecebe6); } .ds-check:focus-visible { outline: 1px solid var(--c-fg, #ecebe6); outline-offset: 2px; } .ds-plot-svg { display: block; width: 100%; height: 128px; overflow: visible; } .ds-grid { stroke: var(--c-line, #262624); stroke-width: 1; vector-effect: non-scaling-stroke; } .ds-base { stroke: var(--c-plot-dim, #2c2c29); stroke-width: 1; vector-effect: non-scaling-stroke; } .ds-occlude { fill: var(--c-bg, #0b0b0a); } .ds-trace { fill: none; stroke: var(--c-plot-mid, #85847e); stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; cursor: pointer; transition: stroke-width 180ms ease-out, stroke 180ms ease-out, opacity 180ms ease-out; } .ds-trace.ds-on { stroke: var(--c-fg, #ecebe6); stroke-width: 2.25; } .ds-trace.ds-conflict { stroke-dasharray: 4 3; } .ds-slew { stroke: var(--c-fg, #ecebe6); stroke-width: 1; stroke-dasharray: 2 3; vector-effect: non-scaling-stroke; } .ds-flip { stroke: var(--c-red, #e8402c); stroke-width: 2; vector-effect: non-scaling-stroke; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Pulsar Sleeve",
+    "overview": "TransitPlanner draws each night the way a record sleeve once drew a pulsar. Every candidate transit is a hairline in plot white on matte black, stacked row on row, and each line dips at its predicted transit with a trapezoid whose depth follows the transit depth. Scheduled transits are drawn at double weight. Everything around that plot is the catalog identity that frames it: one wide grotesk, set huge for numerals and tiny in tracked caps for labels; hairline rules in place of panels; and a five-block colour code (grey, blue, yellow, red, white) that carries every state the planner has to show.\n\nThe density is that of an instrument used at a desk before the night. Screens are dark, quiet and numerical: times, depths, coordinates and counts in tabular figures, labels in engraved caps, and almost no colour. When colour appears it is a code. Red means scheduled, primary, active or failed. Yellow means warning. Blue means info or priority. Grey means neutral. White means plainly fine. Regions are separated by 1px rules. Nothing has a corner radius, a gradient or a filled card. Motion is limited to colour, stroke weight and opacity changes, and there is no load choreography.\n\nThe second theme is part of the system. Night mode remaps every colour token to dim reds on pure black so the screen can be read at the telescope without ruining dark adaptation. The world refuses the category default, a twilight-gradient Gantt chart with coloured bars. Twilight here is five stepped grey bands on a thin strip, and transits are curves.",
+    "keyCharacteristics": [
+      "Matte near-black ground with plot-white hairline ink and three industrial greys.",
+      "A five-block colour code that is also the brand mark; colour only ever encodes state.",
+      "One variable grotesk (Archivo) used at three widths: 125% for numerals, 112% for caps labels, 100% for body.",
+      "Huge zero-padded numeral headlines beside small caps titles.",
+      "1px rules split regions; every corner is square.",
+      "Buttons are hairline rectangles; a primary action carries a solid red block on its right edge.",
+      "The pulsar plot is the signature view; its occlusion is the only depth in the system.",
+      "A full red night theme reached through the same tokens."
+    ],
+    "rules": [
+      {
+        "name": "The Code Strip Rule",
+        "body": "Colour is a code, never decoration. Each of the five blocks (grey, blue, yellow, red, white) means one state; a coloured element that encodes no state does not ship.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Means Committed Rule",
+        "body": "Red marks only what is scheduled, primary, active or failed. If a red element can't be explained as one of those four, it's the wrong colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Token-Only Rule",
+        "body": "Components read colour only through the theme tokens (`bg`, `fg`, `line`, `red` and the rest, or `var(--c-*)` inside SVG). Night mode works by remapping the tokens, so a literal hex in a component skips the remap and stays bright at the telescope.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family, Three Widths Rule",
+        "body": "Archivo Variable is the only typeface. Hierarchy comes from the width axis (125, 112, 100) and from size; no second face and no weight above 500.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Every number a user compares (times, coordinates, depths, counts, axis ticks, the lockup count) is set in tabular figures so columns and numerals never jitter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Unit Rule",
+        "body": "In a caps label, a trailing unit in parentheses keeps its own case and normal tracking, so µm never turns into ΜM.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Region Rule",
+        "body": "Regions are divided by 1px rules, never by filled panels. A boundary is a line, not a surface.",
+        "section": "layout"
+      },
+      {
+        "name": "The Occlusion Is Depth Rule",
+        "body": "The only spatial layering in the system belongs to the plot: rows drawn bottom-up, each dip filled with the ground so it hides the rows below. Panels and sections never lift.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Corner Rule",
+        "body": "Corner radius is 0px everywhere: controls, menus, modals, tooltips, blocks.",
+        "section": "shapes"
+      },
+      {
+        "name": "The End Block Rule",
+        "body": "A coloured action is marked by a solid block on its right edge, never by a filled button. Primary buttons carry a red block (14px at 35px height, 10.5px at 28px); an active choice tile carries a 7px one.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do separate regions with 1px rules: Hairline Rule (#262624) for dividers, Control Rule (#43433f) for control borders.",
+      "Do use colour only as the code: red for scheduled, primary, active or error; yellow for warning; blue for info or priority; grey for neutral; Plot White for ok.",
+      "Do set counts and dates as huge zero-padded numerals at 125% width, weight 500, tabular figures, and pair them with an 11px caps title.",
+      "Do set every label, button and section title in 11px caps at 112% width with 0.16em tracking.",
+      "Do mark the primary action with a red end block on the button's right edge, and invert (Plot White fill, Sleeve Black text) for hover, selection and highlighted menu items.",
+      "Do draw new plot marks in the plot's grammar: 1px Candidate Trace for candidates, 2.25px Plot White for scheduled, dashes (4 on, 3 off) for conflicts, a 2px red tick for flips, non-scaling strokes.",
+      "Do read every colour through the theme tokens so night mode and print keep working.",
+      "Do keep motion to 150ms colour changes on controls and 180ms weight and opacity changes on plot traces, and honour reduced motion.",
+      "Do use Lucide outline icons at 1.5 stroke, 12–16px."
+    ],
+    "donts": [
+      "Don't draw the night as a twilight-gradient Gantt chart with coloured bars; transits are hairline curves, and twilight is five stepped bands.",
+      "Don't use gradients anywhere, including the sky strip.",
+      "Don't round a corner, fill a card or lift a section with a shadow; the export menu's float shadow is the only shadow.",
+      "Don't add a second typeface or a weight above 500; vary width and size instead.",
+      "Don't use colour decoratively, or use red for anything that isn't scheduled, primary, active or failed.",
+      "Don't put a literal hex value in a component; it escapes the night remap.",
+      "Don't set Code Blue as text; it is a block colour.",
+      "Don't add page-load choreography or entrance animations."
+    ]
+  }
+}

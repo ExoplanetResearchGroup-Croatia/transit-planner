@@ -2,14 +2,14 @@
 
 Public web app that plans exoplanet transit observations and exports them to Ekos/KStars and NINA. Repository: `ExoplanetResearchGroup-Croatia/transit-planner`. The original planning handoff (2026-11-21) is summarized here; the detailed documentation is in `README.md` and `docs/`.
 
-## Status (2026-11-22, v0.1.0)
+## Status (2026-11-22, v0.2.0)
 
 Phases 1–5 of the plan are implemented; phase 6 (comparison stars, finder chart, SNR, PWA) is not.
 
 | Area | State |
 |---|---|
 | Engine | `src/lib`; verified against astropy |
-| UI | 7 steps; Equipment Builder page |
+| UI | Two pages, Plan (night timeline = workspace) and Setup (modals), plus the Equipment Builder; visual world "Pulsar Sleeve" (see PRODUCT.md, DESIGN.md, .impeccable/surfaces/) |
 | Exporters | Golden-file tests against real KStars/NINA files |
 | Docs | `README.md`, `docs/` |
 | Pending | Loading the exports into a running KStars and NINA; comparison against NASA Transit Service / ETD |
@@ -17,6 +17,7 @@ Phases 1–5 of the plan are implemented; phase 6 (comparison stars, finder char
 ## Decisions (do not re-litigate without reason)
 
 - **Hosting: GitHub Pages, not Netlify** (owner's decision; local only for now). The catalog is a static snapshot in `public/data/`, refreshed by `.github/workflows/refresh-catalog.yml`. The CSP is a meta tag injected in `vite.config.ts`. `builder.html` is a second page.
+- **UX (user decision 2026-11-22):** two pages only. Automatic start (geolocation → compute → best plan preselected); selection directly on the timeline, no separate results list; one-click export menu. Do not reintroduce wizards or extra pages.
 - Public audience; English only. **All UI strings are in `src/strings.ts`.**
 - Ekos and NINA have equal priority, both behind `Plan → Job[]` (`src/lib/export/model.ts`).
 - Photometry and Showcase modes run on one engine with different defaults, scores and warnings.

@@ -12,24 +12,31 @@ Everything runs in the browser. There are no accounts, no cookies and no trackin
 
 ## Features
 
-- **Location**: latitude, longitude, elevation; IANA time zone detected from the coordinates (overridable); "use my location"; saved profiles; local horizon profile (azimuth → minimum altitude, CSV import).
-- **Equipment**: an official catalog (JSON, validated at build time), your own "My equipment", JSON import, and manual entry. Derived f-ratio, plate scale and field of view. Mount type, meridian-flip offset, slew/centering and autofocus overheads. An editable exposure-advice table.
-- **Equipment Builder** (`builder.html`): creates and checks equipment JSON with a live schema check in plain language, derived-value sanity checks and a prefilled GitHub issue for catalog contributions.
-- **Time and conditions**: 1–14 nights (or "tonight"); astronomical, nautical or civil darkness; a per-night summary with sunset, dark window, sunrise and Moon. Nights without darkness are greyed out.
-- **Filters**: magnitude, depth, duration, coverage (full / complete transit / partial), baseline (fixed or proportional), widening by k·σ, minimum altitude, maximum airmass, Moon distance and illumination, an ephemeris-uncertainty cap, a meridian-flip policy (avoid / flag / allow), sources (ExoClock, NASA, TESS TOI) and "ExoClock needs observations".
+The app has **two pages**:
+
+1. **Plan**: the night timeline, where you read, adjust and export the plan.
+2. **Setup**: what the planner assumed, each line opening a modal.
+
+How it works:
+
+- **Automatic start:** browser location, time zone from the coordinates, tonight plus the next 2 nights, mode defaults, compute. The best conflict-free plan is selected for you. Every change recomputes automatically.
+- **The night as a pulsar plot:** every candidate transit is a hairline across the night that dips at its predicted transit (depth-scaled).
+  - Scheduled transits are drawn bold.
+  - Click a line to schedule or remove it; overlapping transits give way on their own.
+  - Twilight, the Moon, slew gaps and meridian flips are drawn on the same plot.
+- **Data column** for the selected transit: times, ±σ, depth, magnitude, altitude, Moon, coverage, warnings, predicted light curve, polar sky track, Aladin Lite sky view with the camera field of view.
+- **One-click export:** Ekos `.esl` (KStars 3.7/3.8) and a starter `.esq`, NINA Advanced Sequencer JSON (your template or the built-in one; one file per night), CSV, `.ics`, plan JSON, share link, print.
+- **Setup modals:**
+  - **Location** (geolocation, saved sites, horizon profile);
+  - **Equipment**: catalog, My equipment, JSON import, a manual form, mount and overheads, and an exposure-advice table;
+  - **Nights**: 1–14, darkness −18/−12/−6°;
+  - **Filters**: magnitude, depth, coverage, baseline, k·σ widening, altitude and airmass, Moon, uncertainty cap, flip policy, sources.
 - **Two modes** on the same engine:
-  - **Photometry**: ExoClock-style science value, full warnings.
-  - **Showcase**: deep transits of bright stars for outreach, basic warnings only.
-- **Results**: a sortable, searchable, virtualized table. The detail view shows an altitude curve with twilight shading and the Moon, a predicted light curve, and an Aladin Lite sky view with the camera field of view.
-- **Schedule**: a Gantt chart per night with conflicts (slew and autofocus gaps included) and **Suggest schedule** (weighted interval scheduling).
-- **Export**:
-  - Ekos `.esl` (KStars 3.7/3.8) and a starter `.esq`
-  - NINA Advanced Sequencer JSON, built from your template or the built-in one
-  - CSV, `.ics`, plan JSON
-  - a share link
-  - a printable summary
-- **Red night mode** and a dark theme.
-- All heavy computation runs in a **Web Worker**. Computing 3 nights for the full catalog (≈ 4 700 planets, optionally + 5 200 TOIs) takes well under a second on a laptop.
+  - **Photometry**: ExoClock-style science value;
+  - **Showcase**: deep transits of bright stars for outreach.
+- **Equipment Builder** (`builder.html`): equipment JSON with a live schema check in plain language and a prefilled GitHub issue for catalog contributions.
+- **Red night mode**, keyboard-accessible controls.
+- **Computation in a Web Worker:** 3 nights for the full catalog take well under a second.
 
 ## Quick start
 

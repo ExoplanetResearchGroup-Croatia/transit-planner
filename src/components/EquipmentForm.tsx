@@ -227,7 +227,7 @@ export function EquipmentForm({ draft: d, onChange, showCatalogOptions = true }:
   ];
   return (
     <div className="flex flex-col gap-4">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
         <Field label={S.form.name}>
           <TextInput value={d.name} onChange={(v) => up({ name: v })} />
         </Field>
@@ -306,12 +306,12 @@ export function EquipmentForm({ draft: d, onChange, showCatalogOptions = true }:
         <TextInput value={d.notes} onChange={(v) => up({ notes: v })} />
       </Field>
       {showCatalogOptions && (
-        <div className="rounded-md border border-line bg-bg p-3">
+        <div className="border-t border-line pt-4">
           <Checkbox checked={d.catalog} onChange={(v) => up({ catalog: v })} label={S.builder.catalogEntry} />
           {(d.catalog || d.sources) && (
             <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_160px]">
               <Field label={S.builder.sourcesLabel}>
-                <textarea className="num h-20 w-full rounded-md border border-line bg-panel p-2 text-xs text-fg focus:border-accent focus:outline-none" value={d.sources} onChange={(e) => up({ sources: e.target.value })} />
+                <textarea className="num h-20 w-full border border-line-strong bg-transparent p-3 text-xs text-fg focus:border-fg focus:outline-none" value={d.sources} onChange={(e) => up({ sources: e.target.value })} />
               </Field>
               <Field label={S.form.confidence}>
                 <Select value={d.confidence} onChange={(v) => up({ confidence: v })} options={[{ value: 'high', label: S.form.high }, { value: 'medium', label: S.form.medium }, { value: 'low', label: S.form.low }]} />
@@ -320,7 +320,7 @@ export function EquipmentForm({ draft: d, onChange, showCatalogOptions = true }:
           )}
         </div>
       )}
-      <div className="flex flex-wrap gap-6 rounded-md border border-line bg-bg px-4 py-3">
+      <div className="flex flex-wrap gap-8 border-t border-line pt-4">
         <Stat label={S.equipment.fRatio} value={d.aperture && d.focal ? `f/${(d.focal / d.aperture).toFixed(1)}` : '—'} />
         <Stat label={S.equipment.plateScale} value={derived ? `${derived.plateScale.toFixed(2)}″/px` : '—'} />
         <Stat label={S.equipment.fov} value={derived ? formatFov(derived) : '—'} sub={derived ? `diag ${derived.fovDiagonalDeg.toFixed(2)}°` : undefined} />

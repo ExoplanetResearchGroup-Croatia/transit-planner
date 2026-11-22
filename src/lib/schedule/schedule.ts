@@ -32,6 +32,31 @@ export function findConflicts(selected: Schedulable[], gapMin: number): Map<stri
   return out;
 }
 
+export function overlaps(a: Schedulable, b: Schedulable, gapMin: number): boolean {
+  const [as, ae] = occupied(a, gapMin);
+  const [bs, be] = occupied(b, gapMin);
+  return as < be && bs < ae;
+}
+
+/**
+ * The plan the user sees: their manual picks (newest wins when two overlap),
+ * minus their manual removals, filled with the best conflict-free set of the
+ * remaining transits. Re-run after every recompute so the plan stays automatic
+ * while respecting what the user changed by hand.
+ */
+export function planSelection<T extends Schedulable>(events: T[], gapMin: number, picks: string[], drops: string[], weight?: (e: T) => number): string[] {
+  const byId = new Map(events.map((e) => [e.id, e]));
+  const kept: T[] = [];
+  for (let i = picks.length - 1; i >= 0; i--) {
+    const e = byId.get(picks[i]);
+    if (e && !kept.some((k) => overlaps(k, e, gapMin))) kept.push(e);
+  }
+  const dropSet = new Set(drops);
+  const keptIds = new Set(kept.map((k) => k.id));
+  const free = events.filter((e) => !keptIds.has(e.id) && !dropSet.has(e.id) && !kept.some((k) => overlaps(k, e, gapMin)));
+  return [...kept.map((k) => k.id), ...suggestSchedule(free, gapMin, weight)];
+}
+
 /**
  * Weighted interval scheduling (dynamic programming, O(n log n)).
  * Returns the ids of a conflict-free subset with maximum total weight.

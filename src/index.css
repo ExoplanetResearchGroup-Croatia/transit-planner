@@ -1,73 +1,84 @@
 @import 'tailwindcss';
 
 /*
- * Theme tokens. Dark is the default; [data-theme='night'] remaps every colour
- * to dim reds so the screen does not spoil dark adaptation at the telescope.
+ * Pulsar Sleeve: matte black ground, plot-white hairline ink, industrial greys,
+ * and a five-block colour code (grey, blue, yellow, red, white) that carries
+ * state. Red = scheduled / primary / active, yellow = warning, blue = info.
+ * [data-theme='night'] remaps every colour to dim reds for the telescope.
  */
+/* small text: 0.8125rem = 11.4px at the 14px root, never below the 11px label floor */
+@theme {
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.5;
+}
+
 @theme inline {
-  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, sans-serif;
   --color-bg: var(--c-bg);
   --color-panel: var(--c-panel);
   --color-panel-2: var(--c-panel-2);
   --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
   --color-fg: var(--c-fg);
   --color-muted: var(--c-muted);
   --color-faint: var(--c-faint);
-  --color-accent: var(--c-accent);
-  --color-accent-fg: var(--c-accent-fg);
-  --color-accent-2: var(--c-accent-2);
-  --color-ok: var(--c-ok);
-  --color-warn: var(--c-warn);
-  --color-bad: var(--c-bad);
-  --color-sky-day: var(--c-sky-day);
-  --color-sky-civil: var(--c-sky-civil);
-  --color-sky-nautical: var(--c-sky-nautical);
-  --color-sky-astro: var(--c-sky-astro);
-  --color-sky-dark: var(--c-sky-dark);
+  --color-accent: var(--c-red);
+  --color-accent-fg: var(--c-on-red);
+  --color-accent-2: var(--c-blue);
+  --color-red: var(--c-red);
+  --color-blue: var(--c-blue);
+  --color-yellow: var(--c-yellow);
+  --color-grey: var(--c-grey);
+  --color-ok: var(--c-fg);
+  --color-warn: var(--c-yellow);
+  --color-bad: var(--c-red);
 }
 
 :root {
   color-scheme: dark;
-  --c-bg: #0a0d13;
-  --c-panel: #11161f;
-  --c-panel-2: #171e2a;
-  --c-line: #252f3f;
-  --c-fg: #e2e7ef;
-  --c-muted: #8d98aa;
-  --c-faint: #5a6476;
-  --c-accent: #f0b54a;
-  --c-accent-fg: #1b1306;
-  --c-accent-2: #6cc5d3;
-  --c-ok: #5cc28c;
-  --c-warn: #e5a23d;
-  --c-bad: #ee6262;
-  --c-sky-day: #2b3a55;
-  --c-sky-civil: #1f2a40;
-  --c-sky-nautical: #171f30;
-  --c-sky-astro: #111723;
-  --c-sky-dark: #0a0d13;
+  --c-bg: #0b0b0a;
+  --c-panel: #10100f;
+  --c-panel-2: #171716;
+  --c-line: #262624;
+  --c-line-strong: #43433f;
+  --c-fg: #ecebe6;
+  --c-muted: #9b9a94;
+  --c-faint: #7d7c76;
+  --c-red: #e8402c;
+  --c-on-red: #fff8f2;
+  --c-blue: #2f5ed8;
+  --c-yellow: #e8b713;
+  --c-grey: #6f6e69;
+  --c-sky-day: #22221f;
+  --c-sky-civil: #1a1a18;
+  --c-sky-nautical: #141413;
+  --c-sky-astro: #0f0f0e;
+  --c-sky-dark: #0b0b0a;
+  --c-plot-dim: #2c2c29;
+  --c-plot-mid: #85847e;
 }
 
 :root[data-theme='night'] {
   --c-bg: #000000;
-  --c-panel: #0b0000;
-  --c-panel-2: #120101;
-  --c-line: #3a0b08;
-  --c-fg: #d8392c;
-  --c-muted: #93261d;
-  --c-faint: #5c160f;
-  --c-accent: #ff3b2b;
-  --c-accent-fg: #000000;
-  --c-accent-2: #a8261b;
-  --c-ok: #c4321f;
-  --c-warn: #e0402c;
-  --c-bad: #ff2414;
-  --c-sky-day: #2a0503;
-  --c-sky-civil: #1d0302;
-  --c-sky-nautical: #130201;
-  --c-sky-astro: #0a0100;
+  --c-panel: #060000;
+  --c-panel-2: #0d0100;
+  --c-line: #2a0703;
+  --c-line-strong: #4c0f08;
+  --c-fg: #d63a2b;
+  --c-muted: #93281c;
+  --c-faint: #6e1a10;
+  --c-red: #ff3a28;
+  --c-on-red: #000000;
+  --c-blue: #7c1c12;
+  --c-yellow: #b9341f;
+  --c-grey: #5e1a10;
+  --c-sky-day: #1c0402;
+  --c-sky-civil: #130201;
+  --c-sky-nautical: #0c0100;
+  --c-sky-astro: #060000;
   --c-sky-dark: #000000;
+  --c-plot-dim: #2c0703;
+  --c-plot-mid: #7e2116;
 }
 
 html,
@@ -76,21 +87,95 @@ body {
   color: var(--c-fg);
   font-family: var(--font-sans);
   font-size: 14px;
+  line-height: 1.45;
+  font-stretch: 100%;
   -webkit-font-smoothing: antialiased;
+  caret-color: var(--c-red);
 }
 
-.num {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+::selection {
+  background: var(--c-fg);
+  color: var(--c-bg);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-line-strong) transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-line-strong);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 :focus-visible {
-  outline: 2px solid var(--c-accent);
+  outline: 1px solid var(--c-fg);
   outline-offset: 2px;
 }
 
-input[type='number']::-webkit-inner-spin-button {
-  opacity: 0.4;
+/* engraved caps: the world's label voice */
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: 112%;
+  line-height: 1.3;
+}
+/* wide numerals: the world's headline voice */
+.display {
+  font-stretch: 125%;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.95;
+}
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* square check / radio in the world's vocabulary */
+.tp-check {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--c-line-strong);
+  background: transparent;
+  display: inline-grid;
+  place-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background-color 160ms ease-out, border-color 160ms ease-out;
+}
+.tp-check:checked {
+  background: var(--c-red);
+  border-color: var(--c-red);
+}
+.tp-check:hover {
+  border-color: var(--c-fg);
+}
+
+.plot-row-line {
+  transition: stroke-width 180ms ease-out, stroke 180ms ease-out, opacity 180ms ease-out;
 }
 
 /* Aladin Lite in red night mode */
@@ -98,18 +183,26 @@ input[type='number']::-webkit-inner-spin-button {
   filter: grayscale(1) sepia(1) hue-rotate(-40deg) saturate(6) brightness(0.55);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
+
 @media print {
   :root,
   :root[data-theme='night'] {
     --c-bg: #ffffff;
     --c-panel: #ffffff;
-    --c-panel-2: #f3f4f6;
-    --c-line: #d1d5db;
+    --c-panel-2: #f2f2f2;
+    --c-line: #cccccc;
+    --c-line-strong: #999999;
     --c-fg: #111111;
     --c-muted: #444444;
     --c-faint: #777777;
-    --c-accent: #b7791f;
-    --c-accent-2: #2c7a7b;
   }
   .no-print {
     display: none !important;

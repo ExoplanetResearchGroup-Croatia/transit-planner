@@ -2,6 +2,22 @@
 
 All notable changes to this project are documented here. Dates are UTC.
 
+## 0.2.0 — 2026-11-22
+
+Redesign after user feedback ("too many clicks, too many pages, looks vibe-coded").
+
+- **Two pages instead of a 7-step wizard.**
+  - **Plan**: the night timeline is the workspace, with selection and export.
+  - **Setup**: summary lines that open modals for location, equipment, nights, filters and export settings.
+- **Automatic start:** browser geolocation, compute, and the best conflict-free plan selected automatically. Settings changes recompute on their own.
+- **Selection directly on the plot.** Manual picks win, removals stick, and the rest is re-optimized (`planSelection`, with a test).
+- **One-click export menu.** The format downloads at once; options moved to Export settings.
+- **New visual world, "Pulsar Sleeve":**
+  - each night as a stack of hairline light curves on matte black, depth-scaled dips, scheduled transits bold;
+  - Archivo with wide numerals, engraved caps, hairline controls with coloured end blocks, a five-block colour code for state;
+  - a polar sky track and a hairline light curve in the data column.
+- Aladin Lite's usage logger is blocked, and the CSP now allows the official HiPS mirrors.
+
 ## 0.1.0 — 2026-11-21
 
 First working version (not yet deployed).

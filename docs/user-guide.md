@@ -1,121 +1,138 @@
 # User guide
 
-TransitPlanner walks through seven steps. You can jump between steps with the step bar. Results, Schedule and Export need a valid location. Every setting is saved in your browser.
+TransitPlanner has two pages, and most of the time you only need the first one.
 
-The header has three switches:
+| Page | What it is |
+|---|---|
+| **Plan** | The night timeline. You read, adjust and export the plan here. |
+| **Setup** | What the planner assumed (location, equipment, nights, filters, export settings). Each line opens a modal. |
+
+All settings are saved in your browser, and every change recomputes the plan automatically.
+
+## First start
+
+On first start:
+
+1. The browser asks for your location; allow it once. The time zone is detected from the coordinates.
+2. The planner takes **tonight plus the next 2 nights** (3 in total), astronomical darkness and the Photometry defaults.
+3. It computes every transit, **selects the best conflict-free plan automatically** and shows the Plan page.
+
+If you decline the location request, the Setup page opens with the location modal. Enter latitude and longitude once and the plan appears.
+
+## The Plan page
+
+**Top bar**:
 
 - **Mode**:
   - **Photometry** (science value, ExoClock priorities, full warnings);
-  - **Showcase** (deep transits of bright stars for outreach, basic warnings).
-  Each mode has its own filter set.
-- **Times**: local time of the site or UTC. Exports always state their time zone.
-- **Theme**: dark, or **red night mode** for use at the telescope.
+  - **Showcase** (deep transits of bright stars for outreach).
+- **Local / UTC**: the time zone used in the view.
+- **Export** (see below).
 
-## 1. Location
+**Settings strip**: Location · Equipment · Nights · Filters. Click any entry to open its modal; changes apply at once.
 
-- Press **Use my location**, or type latitude and longitude in decimal degrees (north and east positive) and the elevation.
-- The **time zone** is detected from the coordinates. Change it only if your observatory clock runs on another zone.
-- **Saved locations**: keep several sites and switch with one click.
-- **Local horizon** (optional): one `azimuth,altitude` pair per line, in degrees, typed or imported from CSV. Header lines and `#` comments are ignored. Between points the minimum altitude is interpolated linearly. A target counts as visible only above both the horizon and the minimum-altitude filter.
+**The nights.** Each night is one plot:
 
-## 2. Equipment
+- The big numeral is the date. Next to it: darkness from–to and Moon illumination.
+- The thin strip above the rows shows twilight (lighter = brighter sky) and the Moon's altitude (dotted line).
+- Every candidate transit is a hairline across the night that **dips** at its predicted transit. The dip depth shows the transit depth (logarithmic, so deep transits stand out).
+  - **Bold white** = scheduled.
+  - **Grey** = candidate.
+  - **Grey dashed** = candidate that overlaps a scheduled transit (including the slew gap).
+  - The short dotted lead-in before a scheduled transit is the slew, centering and autofocus time.
+  - A **red tick** marks a meridian flip.
+- Right column: ingress–egress times.
 
-| Source | Use |
+Working with the plot:
+
+- **Click a line** (or its checkbox) to schedule or remove that transit. Anything that overlaps it leaves the plan automatically, and the rest of the plan is re-optimized around your choice.
+- **Click a name** to see the transit in the data column on the right.
+- **Reset to best plan** appears after manual changes and drops them.
+- Up to 14 rows are shown per night. Use **Show all** when there are more.
+
+**The left rail** lists the nights by day; click one to jump to it. The active night is boxed in red. At the bottom: Plan, Setup, Equipment Builder and red night mode.
+
+**Data column** (right; below the plot on narrow screens) for the selected transit:
+
+- schedule / remove button;
+- observing window, ingress, mid and egress times;
+- ephemeris uncertainty (±σ), depth, duration, magnitude, altitude, Moon, coverage, flip time, ExoClock priority and ephemeris source;
+- warnings;
+- the **predicted light curve**: trapezoid model; the shaded band is ±σ on mid-transit and the red line is the planned observing window;
+- the **sky track**: polar alt-az plot with the zenith in the centre and the horizon on the ring. The transit part is bold, with ingress (filled dot) and egress (ring), and your local horizon is drawn if you entered one;
+- **Sky view**: Aladin Lite DSS images with your camera's field of view. These are loaded from CDS only when you ask.
+
+## Export
+
+Click **Export** and choose a format; the file downloads at once.
+
+| Format | Contents |
 |---|---|
-| **Catalog** | Presets, smart telescopes, or *Build a setup* (telescope + camera + readout mode + mount) |
-| **My equipment** | Entries you created or imported; **Export my equipment** downloads them as JSON |
-| **Import JSON** | A file in the TransitPlanner format. It is checked, and errors are listed in plain language |
-| **Enter manually** | The same form as the Equipment Builder |
+| Ekos / KStars `.esl` | One job per transit, starting at a fixed time and finishing at a fixed time |
+| Ekos capture sequence `.esq` | A starter sequence with the advised exposure; dithering and refocus are off |
+| N.I.N.A. `.json` | One file per night, built from the built-in template or your own. Load it after sunrise of that day, because NINA stores clock times without a date |
+| Spreadsheet `.csv` | All times, UTC and local |
+| Calendar `.ics` | One event per transit |
+| Plan file `.json` | Every computed value |
+| Copy share link | Restores this plan in another browser |
+| Print summary | A printable table |
 
-On the right:
+**Export settings** (at the bottom of the menu, or on the Setup page):
 
-- **Derived values**: focal ratio, plate scale and field of view, always computed from the sensor, not taken from brochures.
-- **Mount and overheads**:
-  - mount type (meridian flips happen only on German equatorial mounts);
-  - **flip after** (minutes past the meridian);
-  - **slew + centering**;
-  - **autofocus**.
+- the clock time zone of the telescope computer;
+- KStars version, Ekos profile and `.esq` path;
+- filter name, image directory and camera temperature for the starter sequence;
+- the NINA template (built-in or uploaded);
+- whether to set the exposure from the advice table.
 
-  Overhead and autofocus together make the gap between targets in the schedule.
-- **Exposure advice**: a magnitude → exposure table for a 200 mm aperture, scaled to your aperture. It is a starting point; edit it to match your camera and filters.
+The defaults work without changes.
 
-Smart telescopes controlled by a vendor app (Seestar) cannot be driven by Ekos or NINA. Use the CSV or calendar export for them.
+Smart telescopes controlled by a vendor app (Seestar) cannot be driven by Ekos or NINA. Use Spreadsheet or Calendar for them.
 
-## 3. Time and conditions
+## The modals
 
-- **First night**: tonight, or any date. A night is named after its evening.
-- **Number of nights**: 1–14.
-- **Darkness**: astronomical (−18°), nautical (−12°) or civil (−6°). Nautical darkness gives longer windows for bright targets.
-- The **night summary** lists sunset, start and end of darkness, sunrise, dark hours and Moon illumination. Nights that never get dark at the chosen threshold, such as summer at high latitude, are greyed out.
+**Location**:
 
-## 4. Target filters
+- "Use my location", or latitude, longitude, elevation and time zone;
+- saved locations;
+- **More → local horizon**: azimuth,altitude pairs (typed or imported from CSV) for trees and buildings.
 
-| Filter | Meaning |
-|---|---|
-| Magnitude | V if known, otherwise Gaia G, otherwise TESS T (the table marks G/T) |
-| Depth | Transit depth in ppt (parts per thousand); 10 ppt ≈ 1 % ≈ 11 mmag |
-| Duration | Transit duration (first to fourth contact), hours |
-| Ephemeris uncertainty cap | Drops transits whose predicted σ is larger; empty = no cap |
-| Allow targets without published uncertainty | Otherwise they are dropped |
-| Sources | ExoClock (preferred ephemerides), NASA, TESS candidates |
-| Only ExoClock targets that need observations | ExoClock priority alert or high |
-| Minimum altitude, maximum airmass | The stricter of the two applies (airmass 2 ≈ 30°) |
-| Moon distance, Moon illumination | Applied only while the Moon is up at mid-transit |
-| Coverage | **Full**: transit and both baselines; **Transit**: complete transit, baselines may be short; **Partial**: at least the chosen share of the transit |
-| Baseline | Out-of-transit time before ingress and after egress: fixed minutes, or a multiple of the duration |
-| Widen by k·σ | Adds k × ephemeris uncertainty to each side of the window |
-| Meridian flip | **Avoid** drops transits with a flip during the planned interval; **Flag** keeps them with a warning; **Allow** ignores flips |
+**Equipment**:
+
+- **Catalog**: presets, smart telescopes, or build a setup from telescope, camera, readout mode and mount;
+- **My equipment**: your own entries, downloadable as JSON;
+- **Import**: a JSON file, checked against the schema;
+- **New**: the same form as the Equipment Builder.
+
+Derived values (focal ratio, plate scale, field of view) are always computed from the sensor. **More** holds the mount type, meridian-flip offset, slew and centering time, autofocus time, and the exposure-advice table.
+
+Without equipment, a generic German-equatorial setup is assumed.
+
+**Nights**:
+
+- first night (or "Tonight") and number of nights (1–14);
+- darkness: −18°, −12° or −6°;
+- a per-night list of dark windows and Moon illumination.
+
+**Filters**:
+
+- mode, magnitude range, depth, minimum altitude;
+- coverage:
+  - **Full**: transit plus both baselines;
+  - **Transit**: complete transit;
+  - **Partial**;
+- meridian-flip policy:
+  - **Avoid** drops transits with a flip;
+  - **Flag** keeps them with a warning;
+  - **Allow** ignores flips;
+- sources (ExoClock, NASA, TESS candidates) and "only ExoClock targets that need observations".
+
+**More filters**: duration, maximum airmass, Moon distance and illumination, uncertainty cap, partial share, baseline (fixed or × duration), widening by k·σ, and targets without published uncertainty.
 
 **Reset to mode defaults** restores the current mode's defaults.
 
-## 5. Transits
+Above the plots, **Filtered out** counts the events each filter removed, so you can see what to loosen when a target is missing.
 
-The computation runs in the background, typically in under a second. Above the table:
+## Red night mode
 
-- the number of transits and targets;
-- **Not shown**: why other events were dropped, for example "magnitude 2671" or "too low during the transit 128". Use it to see which filter to loosen.
-
-The table:
-
-- Sort by clicking a column header; search by name.
-- Times are shown in the chosen zone:
-
-  | Column | Meaning |
-  |---|---|
-  | From | Planned start of observing |
-  | Ingress, Mid, Egress | Predicted transit times |
-  | ±σ | Ephemeris uncertainty in minutes |
-
-- **Coverage** badge: Full / Short baseline / Partial. ⚠ counts the warnings; hover to read them.
-- Tick a checkbox to add the transit to the schedule.
-
-Click a row to open the **detail view**:
-
-- the times, depth, duration, magnitude, altitude, Moon and coverage;
-- the warnings, including the meridian-flip time;
-- the **altitude** over the night: twilight shading, Moon (dotted), minimum altitude (dashed), horizon profile, the window (light), the transit (strong), mid-transit and flip (red);
-- the **predicted light curve** with the ±σ band on mid-transit and the planned interval (green);
-- the **sky view** (Aladin Lite, DSS images from CDS) with your camera's field of view, loaded only when you ask;
-- the ephemeris: T0, P, errors, source, reference, epoch.
-
-## 6. Schedule
-
-- There is one timeline per night. The background shades twilight, and the dotted line shows the Moon's altitude.
-- Each row is one transit: the light bar is the planned interval and the strong bar the transit. A short grey line before a selected bar is the slew/autofocus gap.
-- Click a row to select or deselect it; double-click to open details.
-- **Conflicts** (overlaps including the gap) are outlined in red.
-- **Suggest schedule** picks the conflict-free set with the highest total score across all nights.
-
-## 7. Export
-
-**Clock time zone** is the zone of the computer's clock that will run the plan; normally the site's zone.
-
-| Export | Notes |
-|---|---|
-| **Ekos .esl** | One job per transit; starts at a fixed time, finishes at a fixed time. Set the path of your `.esq` on the KStars computer. **Starter .esq**: one Light job with the advised exposure, dithering and refocusing off; open it in Ekos and save it again. |
-| **NINA** | One file per night, from the built-in template or your own. NINA stores times without a date, so load the file after sunrise of that day. |
-| **CSV / Calendar / Plan JSON** | All times included; the calendar uses UTC. |
-| **Share link** | Copies a URL that restores the plan and selection in another browser. |
-| **Printable summary** | Prints the table at the bottom of the page. |
-
-See [export-formats.md](export-formats.md) for details and tested versions.
+The moon icon in the rail switches every colour to dim red for use at the telescope. The sun icon switches back.

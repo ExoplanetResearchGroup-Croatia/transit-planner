@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { epochsInRange, runPlan, sigmaMinutes } from '../src/lib/transits/compute';
-import { findConflicts, suggestSchedule } from '../src/lib/schedule/schedule';
+import { findConflicts, planSelection, suggestSchedule } from '../src/lib/schedule/schedule';
 import { horizonAltitude, parseHorizonCsv } from '../src/lib/transits/horizon';
 import { request, syntheticTarget } from './helpers';
 
@@ -94,6 +94,16 @@ describe('scheduling', () => {
     expect(pick).toEqual(['b', 'd']);
     const pick2 = suggestSchedule([ev('a', 0, 100, 2), ev('b', 50, 250, 3), ev('c', 150, 300, 2)], 3);
     expect(pick2).toEqual(['a', 'c']);
+  });
+  it('plan selection: manual picks win, removals stick, the rest is filled automatically', () => {
+    const evs = [ev('a', 0, 100, 1), ev('b', 50, 250, 3), ev('c', 150, 300, 1), ev('d', 400, 500, 0.5)];
+    expect(planSelection(evs, 3, [], []).sort()).toEqual(['b', 'd']);
+    // picking a (overlaps b) drops b and lets c in
+    expect(planSelection(evs, 3, ['a'], []).sort()).toEqual(['a', 'c', 'd']);
+    // removing d keeps it out
+    expect(planSelection(evs, 3, ['a'], ['d']).sort()).toEqual(['a', 'c']);
+    // two overlapping picks: the newest wins
+    expect(planSelection(evs, 3, ['a', 'b'], []).sort()).toEqual(['b', 'd']);
   });
 });
 

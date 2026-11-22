@@ -5,10 +5,10 @@
 | Layer | Choice |
 |---|---|
 | Frontend | Vite 8, TypeScript, React 19; two pages: `index.html` (planner) and `builder.html` (Equipment Builder) |
-| Styling | Tailwind CSS 4 with theme tokens (`src/index.css`); dark default and red night mode; Radix primitives (Dialog, Tooltip); IBM Plex Sans/Mono bundled via Fontsource |
+| Styling | Tailwind CSS 4 with theme tokens (`src/index.css`, visual world "Pulsar Sleeve", see DESIGN.md); red night mode; Radix primitives (Dialog, Tooltip, DropdownMenu); lucide icons; Archivo variable (width axis) bundled via Fontsource |
 | Astronomy | `astronomy-engine` (Sun, Moon, Earth barycentre, precession/nutation, sidereal time) |
 | Compute | Web Worker (`src/workers/compute.worker.ts` → `src/lib/transits/compute.ts`) |
-| Charts | Hand-written SVG (altitude, light curve, Gantt) |
+| Charts | Hand-written SVG (night pulsar plot, light curve, polar sky track) |
 | Sky view | Aladin Lite 3 from npm, loaded only when requested |
 | State | zustand: settings in `localStorage` (`transit-planner:v1`), catalog cached in IndexedDB, share link in the URL hash |
 | Tests | Vitest; astropy references; golden files for exporters |
@@ -24,9 +24,9 @@ transit-planner/
 │  └─ templates/nina_template.json   built-in NINA template (generated)
 ├─ src/
 │  ├─ strings.ts                     ALL user-facing text
-│  ├─ app/                           App shell, hooks, steps/*
+│  ├─ app/                           App shell, PlanPage, SetupPage, modals, hooks, exportActions
 │  ├─ builder/                       Equipment Builder page
-│  ├─ components/                    UI primitives, charts, EquipmentForm, SkyView
+│  ├─ components/                    UI primitives, NightPlot (signature view), charts, EquipmentForm, SkyView
 │  ├─ state/                         store, defaults per mode
 │  ├─ lib/astro/                     time scales, coordinates, time zones, darkness
 │  ├─ lib/transits/                  prediction, evaluation, scores, horizon

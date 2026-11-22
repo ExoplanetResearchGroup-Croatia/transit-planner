@@ -80,9 +80,11 @@ export function SkyView({ ra, dec, fov }: { ra: number; dec: number; fov: { w: n
           showZoomControl: true,
         });
         if (fov) {
-          const overlay = A.graphicOverlay({ color: '#f0b54a', lineWidth: 2 });
+          // the camera frame is the active selection: drawn in the theme's red (follows night mode)
+          const frame = getComputedStyle(document.documentElement).getPropertyValue('--c-red').trim() || '#e8402c';
+          const overlay = A.graphicOverlay({ color: frame, lineWidth: 2 });
           aladin.addOverlay(overlay);
-          overlay.add(A.polygon(fovCorners(ra, dec, fov.w, fov.h), { color: '#f0b54a', lineWidth: 2 }));
+          overlay.add(A.polygon(fovCorners(ra, dec, fov.w, fov.h), { color: frame, lineWidth: 2 }));
         }
         // Aladin may reset the zoom while it falls back to a HiPS mirror; re-apply it
         const view = Math.min(10, Math.max(0.1, span));
@@ -101,13 +103,13 @@ export function SkyView({ ra, dec, fov }: { ra: number; dec: number; fov: { w: n
   if (!on)
     return (
       <Button size="sm" onClick={() => setOn(true)}>
-        {S.results.skyLoad}
+        {S.inspector.skyLoad}
       </Button>
     );
   return (
     <div>
-      <div ref={el} className="sky-view h-72 w-full overflow-hidden rounded-md border border-line bg-black" />
-      <p className="mt-1 text-xs text-faint">{err ?? S.results.skyHint}</p>
+      <div ref={el} className="sky-view h-64 w-full overflow-hidden border border-line bg-black" />
+      <p className="mt-1 text-xs text-faint">{err ?? S.inspector.skyHint}</p>
     </div>
   );
 }
