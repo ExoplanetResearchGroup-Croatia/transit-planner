@@ -2,6 +2,8 @@
 
 *Hrvatska verzija: [upute.md](upute.md)*
 
+**Video walkthrough (2:43):** [video/transitplanner-guide-en.mp4](video/transitplanner-guide-en.mp4). Part 1 shows the default settings; part 2 shows how to adjust them.
+
 TransitPlanner has two pages, and most of the time you only need the first one.
 
 | Page | What it is |

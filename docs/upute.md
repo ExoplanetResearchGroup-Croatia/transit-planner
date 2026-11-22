@@ -2,6 +2,8 @@
 
 *English version: [user-guide.md](user-guide.md)*
 
+**Video upute (2:43):** [video/transitplanner-upute-hr.mp4](video/transitplanner-upute-hr.mp4). Prvi dio prikazuje rad sa zadanim postavkama, drugi podešavanje postavki.
+
 TransitPlanner planira promatranja tranzita egzoplaneta: iz vaše lokacije, opreme i odabranih noći izračuna koji su tranziti vidljivi, složi raspored bez preklapanja i izveze ga za Ekos/KStars, N.I.N.A., tablicu ili kalendar.
 
 Sučelje je na engleskom, pa su nazivi gumbi i polja ovdje navedeni točno kako piše na ekranu (npr. **Export**, **Location**).
