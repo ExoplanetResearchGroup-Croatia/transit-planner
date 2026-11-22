@@ -2,11 +2,11 @@ name: Refresh catalog snapshot
 
 # Replaces the Netlify scheduled function of the original plan. Fetches NASA
 # Exoplanet Archive + ExoClock + TOI, normalizes, and commits public/data/*.json
-# only when the data changed. Manual for now; uncomment the schedule to run daily.
+# only when the data changed. Runs daily at 04:17 UTC and on demand.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '17 4 * * *'
+  schedule:
+    - cron: '17 4 * * *'
 
 permissions:
   contents: write

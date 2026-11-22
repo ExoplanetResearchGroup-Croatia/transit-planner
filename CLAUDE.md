@@ -16,7 +16,7 @@ Phases 1–5 of the plan are implemented; phase 6 (comparison stars, finder char
 
 ## Decisions (do not re-litigate without reason)
 
-- **Hosting: GitHub Pages, not Netlify** (owner's decision; local only for now). The catalog is a static snapshot in `public/data/`, refreshed by `.github/workflows/refresh-catalog.yml`. The CSP is a meta tag injected in `vite.config.ts`. `builder.html` is a second page.
+- **Hosting: GitHub Pages, not Netlify** (owner's decision). LIVE since 2026-11-22 at https://exoplanetresearchgroup-croatia.github.io/transit-planner/ (public repo, deploy on push to main, daily catalog refresh). The catalog is a static snapshot in `public/data/`, refreshed by `.github/workflows/refresh-catalog.yml`. The CSP is a meta tag injected in `vite.config.ts`. `builder.html` is a second page.
 - **UX (user decision 2026-11-22):** two pages only. Automatic start (geolocation → compute → best plan preselected); selection directly on the timeline, no separate results list; one-click export menu. Do not reintroduce wizards or extra pages.
 - Public audience; English only. **All UI strings are in `src/strings.ts`.**
 - Ekos and NINA have equal priority, both behind `Plan → Job[]` (`src/lib/export/model.ts`).
@@ -44,4 +44,3 @@ Phases 1–5 of the plan are implemented; phase 6 (comparison stars, finder char
 3. ExoClock acknowledgement wording and the TOI table DOI (marked UNVERIFIED in `docs/data-sources.md`).
 4. `equipment.schema.json` was reconstructed from the data because the original was not delivered. Confirm it.
 5. More equipment (eVscope, ASI183/533/1600, HEQ5/AM5, refractors, the society's instruments), with sources.
-6. Go live: make the repository public, set Pages Source = GitHub Actions, enable the triggers (see `docs/development.md`).

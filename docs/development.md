@@ -91,12 +91,14 @@ Open questions from the handoff were decided as follows; all are easy to change:
 
 ## Deployment (GitHub Pages)
 
-The site is **not published yet**. To go live:
+The site is **live** at https://exoplanetresearchgroup-croatia.github.io/transit-planner/ (since 2026-11-22).
 
-1. The organization is on the free plan, and Pages needs a **public** repository there. Make the repository public with `gh repo edit ExoplanetResearchGroup-Croatia/transit-planner --visibility public --accept-visibility-change-consequences`.
-2. Under Settings → Pages, set **Source = GitHub Actions**.
-3. Run **Deploy to GitHub Pages** once (Actions tab → Run workflow), or uncomment its `push` trigger to deploy on every push to `main`.
-4. Optional: uncomment the `schedule` in `refresh-catalog.yml` for a daily snapshot, and the `workflow_run` trigger in `deploy-pages.yml` so that each refresh is deployed. Commits made with `GITHUB_TOKEN` do not start push-triggered workflows, which is why `workflow_run` is needed.
+How it is set up:
+
+1. The repository is **public**, which Pages requires on the free organization plan. Keep it public, or Pages stops.
+2. Settings → Pages: **Source = GitHub Actions**.
+3. `deploy-pages.yml` deploys on every push to `main`, after each catalog refresh (`workflow_run`), and on demand (Actions tab → Run workflow). The `workflow_run` trigger is needed because commits made with `GITHUB_TOKEN` (the refresh bot) do not start push-triggered workflows.
+4. `refresh-catalog.yml` runs daily at 04:17 UTC. It commits the snapshot only when the data changed, and that triggers a deploy.
 5. **Custom domain** (later): add `public/CNAME` containing the domain and set the DNS records. The build uses a relative base, so nothing else changes.
 
 ### Content Security Policy
