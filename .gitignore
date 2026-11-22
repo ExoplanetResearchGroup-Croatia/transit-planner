@@ -12,3 +12,4 @@ src/lib/equipment/validator.generated.js
 .impeccable/reference/
 .impeccable/review/
 demo-video-out/
+__pycache__/
