@@ -52,6 +52,7 @@ npm run preview        # serve dist/ with the production CSP
 npm run catalog:build  # refresh public/data/catalog*.json and toi.json
 npx tsx tools/nina/make-default-template.ts       # rebuild the NINA template
 python3 tools/reference/make_fixtures.py          # regenerate astropy references
+python3 tools/demo-video/record_demo.py hr OUT    # usage video with captions (hr|en), needs `npm run preview`
 ```
 
 `npm run catalog:build -- --cache DIR` stores the raw downloads in `DIR` and reuses them on later runs, which saves time while developing.

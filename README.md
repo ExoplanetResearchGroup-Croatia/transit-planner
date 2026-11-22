@@ -74,7 +74,8 @@ See [docs/data-sources.md](docs/data-sources.md) for queries, units, merging rul
 
 | Document | Contents |
 |---|---|
-| [docs/user-guide.md](docs/user-guide.md) | Step-by-step use, every filter explained |
+| [docs/user-guide.md](docs/user-guide.md) | How to use the app, every setting explained (EN) |
+| [docs/upute.md](docs/upute.md) | Upute za korištenje (HR) |
 | [docs/methodology.md](docs/methodology.md) | Time scales, darkness, prediction, altitude, flips, coverage, scores, scheduling, verification |
 | [docs/data-sources.md](docs/data-sources.md) | NASA, ExoClock and TOI: queries, units, merging, attribution |
 | [docs/export-formats.md](docs/export-formats.md) | Ekos `.esl`/`.esq`, NINA JSON, CSV, ICS, plan JSON, share link; tested versions |

@@ -1,5 +1,7 @@
 # User guide
 
+*Hrvatska verzija: [upute.md](upute.md)*
+
 TransitPlanner has two pages, and most of the time you only need the first one.
 
 | Page | What it is |
@@ -27,13 +29,14 @@ If you decline the location request, the Setup page opens with the location moda
   - **Photometry** (science value, ExoClock priorities, full warnings);
   - **Showcase** (deep transits of bright stars for outreach).
 - **Local / UTC**: the time zone used in the view.
-- **Export** (see below).
 
 **Settings strip**: Location · Equipment · Nights · Filters. Click any entry to open its modal; changes apply at once.
 
+**The big number** is the count of scheduled transits. Next to it: how many nights the plan covers, the first ingress time and how many candidates are on the plot. **Export** is to its right (see below).
+
 **The nights.** Each night is one plot:
 
-- The big numeral is the date. Next to it: darkness from–to and Moon illumination.
+- The big numeral is the date. Next to it: darkness from–to and Moon illumination. Warnings that apply to the whole night (for example, Moon more than 70 % illuminated) sit in the night header.
 - The thin strip above the rows shows twilight (lighter = brighter sky) and the Moon's altitude (dotted line).
 - Every candidate transit is a hairline across the night that **dips** at its predicted transit. The dip depth shows the transit depth (logarithmic, so deep transits stand out).
   - **Bold white** = scheduled.
@@ -56,7 +59,9 @@ Working with the plot:
 
 - schedule / remove button;
 - observing window, ingress, mid and egress times;
-- ephemeris uncertainty (±σ), depth, duration, magnitude, altitude, Moon, coverage, flip time, ExoClock priority and ephemeris source;
+- ephemeris uncertainty (±σ), depth, duration, magnitude;
+- altitude and Moon, each with a 10-block meter (red blocks: the Moon is more than 70 % illuminated and above the horizon);
+- coverage, flip time, ExoClock priority and ephemeris source;
 - warnings;
 - the **predicted light curve**: trapezoid model; the shaded band is ±σ on mid-transit and the red line is the planned observing window;
 - the **sky track**: polar alt-az plot with the zenith in the centre and the horizon on the ring. The transit part is bold, with ingress (filled dot) and egress (ring), and your local horizon is drawn if you entered one;
@@ -95,7 +100,7 @@ Smart telescopes controlled by a vendor app (Seestar) cannot be driven by Ekos o
 
 - "Use my location", or latitude, longitude, elevation and time zone;
 - saved locations;
-- **More → local horizon**: azimuth,altitude pairs (typed or imported from CSV) for trees and buildings.
+- **Local horizon** (collapsible section at the bottom): azimuth,altitude pairs (typed or imported from CSV) for trees and buildings.
 
 **Equipment**:
 
@@ -131,7 +136,7 @@ Without equipment, a generic German-equatorial setup is assumed.
 
 **Reset to mode defaults** restores the current mode's defaults.
 
-Above the plots, **Filtered out** counts the events each filter removed, so you can see what to loosen when a target is missing.
+Inside the Filters window, **Filtered out in the current plan** counts the events each filter removed, so you can see what to loosen when a target is missing.
 
 ## Red night mode
 
