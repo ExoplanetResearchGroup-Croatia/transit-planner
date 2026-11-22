@@ -1,5 +1,7 @@
 # TransitPlanner
 
+**Open the app:** https://exoplanetresearchgroup-croatia.github.io/transit-planner/
+
 Plan exoplanet transit observations for your location, equipment and nights, and export the plan to **Ekos/KStars** and **N.I.N.A.** (plus CSV, iCalendar, JSON and a share link).
 
 TransitPlanner links the steps that are usually done in separate tools:
@@ -85,7 +87,9 @@ See [docs/data-sources.md](docs/data-sources.md) for queries, units, merging rul
 
 ## Deployment
 
-The app is a static site built for **GitHub Pages**. It is not published yet. `.github/workflows/deploy-pages.yml` (manual trigger) and `refresh-catalog.yml` (catalog snapshot, manual trigger) are ready. [docs/development.md](docs/development.md#deployment-github-pages) lists the steps to go live.
+**Live:** https://exoplanetresearchgroup-croatia.github.io/transit-planner/
+
+The app is a static site on **GitHub Pages**. `.github/workflows/deploy-pages.yml` deploys every push to `main`, and `refresh-catalog.yml` refreshes the catalog snapshot daily (see [docs/development.md](docs/development.md#deployment-github-pages)).
 
 ## Status and tested versions
 

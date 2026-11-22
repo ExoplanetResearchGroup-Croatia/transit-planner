@@ -1,17 +1,17 @@
 name: Deploy to GitHub Pages
 
-# Manual for now (the site is not public yet). To publish on every push to main
-# and after each catalog refresh, uncomment the push and workflow_run triggers.
-# Requirements: repository Settings > Pages > Source = "GitHub Actions"; on the
-# free organization plan the repository must be public.
+# Live at https://exoplanetresearchgroup-croatia.github.io/transit-planner/
+# Deploys on every push to main, after each catalog refresh, and on demand.
+# Requirements: Settings > Pages > Source = "GitHub Actions"; on the free
+# organization plan the repository must stay public.
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
-  # workflow_run:
-  #   workflows: ['Refresh catalog snapshot']
-  #   types: [completed]
-  #   branches: [main]
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ['Refresh catalog snapshot']
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
