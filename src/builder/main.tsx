@@ -1,0 +1,11 @@
+import { StrictMode } from 'react';
+import '@fontsource-variable/archivo/wdth.css';
+import { createRoot } from 'react-dom/client';
+import '../index.css';
+import { BuilderApp } from './BuilderApp';
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <BuilderApp />
+  </StrictMode>,
+);

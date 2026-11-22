@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.vite/
+coverage/
+# Claude Code worktrees live inside the main checkout
+.claude/
+# generated at build time from public/data/equipment.schema.json
+src/lib/equipment/validator.generated.js
+# third-party design reference images (downloaded for review, not ours to redistribute)
+.impeccable/reference/
+.impeccable/review/
+demo-video-out/
+__pycache__/

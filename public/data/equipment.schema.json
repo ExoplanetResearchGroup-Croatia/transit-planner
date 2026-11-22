@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://exoplanetresearchgroup-croatia.github.io/transit-planner/data/equipment.schema.json",
+  "title": "TransitPlanner equipment database",
+  "description": "Schema version 1. Used for the official catalog (public/data/equipment.json), for user files exported from 'My equipment', and by the Equipment Builder. Catalog entries need sources and a confidence level; entries whose id starts with 'user:' do not.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "dataRetrieved": { "$ref": "#/$defs/date" },
+    "telescopes": { "type": "array", "items": { "$ref": "#/$defs/telescope" } },
+    "cameras": { "type": "array", "items": { "$ref": "#/$defs/camera" } },
+    "mounts": { "type": "array", "items": { "$ref": "#/$defs/mount" } },
+    "filters": { "type": "array", "items": { "$ref": "#/$defs/filter" } },
+    "all_in_one": { "type": "array", "items": { "$ref": "#/$defs/allInOne" } },
+    "presets": { "type": "array", "items": { "$ref": "#/$defs/preset" } }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^(user:)?[a-z0-9][a-z0-9._-]*$",
+      "description": "Lower-case letters, digits, '.', '_' and '-'. User entries start with 'user:'."
+    },
+    "text": { "type": "string", "pattern": "\\S" },
+    "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "url": { "type": "string", "pattern": "^https?://\\S+$" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/url" },
+      "description": "Where the values come from (manufacturer page, manual, retailer, review)."
+    },
+    "confidence": {
+      "enum": ["high", "medium", "low"],
+      "description": "high: manufacturer or several agreeing sources; medium: secondary sources or one inferred value; low: unverified."
+    },
+    "needsVerification": { "type": "array", "items": { "$ref": "#/$defs/text" } },
+    "positiveNumber": { "type": "number", "exclusiveMinimum": 0 },
+    "sensorPx": {
+      "type": "array",
+      "prefixItems": [
+        { "type": "integer", "minimum": 1, "maximum": 100000 },
+        { "type": "integer", "minimum": 1, "maximum": 100000 }
+      ],
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "[width, height] in pixels, as the sensor is mounted."
+    },
+    "pixelUm": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+    "catalogRules": {
+      "if": { "type": "object", "properties": { "id": { "type": "string", "pattern": "^user:" } }, "required": ["id"] },
+      "else": { "type": "object", "required": ["sources", "confidence"] }
+    },
+    "telescope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "aperture_mm", "focal_length_mm"],
+      "allOf": [{ "$ref": "#/$defs/catalogRules" }],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "manufacturer": { "$ref": "#/$defs/text" },
+        "design": { "$ref": "#/$defs/text" },
+        "aperture_mm": { "type": "number", "exclusiveMinimum": 0, "maximum": 10000 },
+        "focal_length_mm": { "type": "number", "exclusiveMinimum": 0, "maximum": 100000 },
+        "notes": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "needs_verification": { "$ref": "#/$defs/needsVerification" },
+        "sources": { "$ref": "#/$defs/sources" }
+      }
+    },
+    "cameraMode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sensor_px", "pixel_um"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "label": { "$ref": "#/$defs/text" },
+        "sensor_px": { "$ref": "#/$defs/sensorPx" },
+        "pixel_um": { "$ref": "#/$defs/pixelUm" },
+        "pixel_um_inferred": { "type": "boolean" },
+        "bit_depth": { "type": "integer", "minimum": 1, "maximum": 32 },
+        "full_well_e": { "$ref": "#/$defs/positiveNumber" }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "color", "modes"],
+      "allOf": [{ "$ref": "#/$defs/catalogRules" }],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "manufacturer": { "$ref": "#/$defs/text" },
+        "sensor_model": { "$ref": "#/$defs/text" },
+        "color": { "enum": ["mono", "osc"] },
+        "cooled": { "type": "boolean" },
+        "default_mode": { "$ref": "#/$defs/id" },
+        "modes": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/cameraMode" } },
+        "read_noise_e_min": { "type": "number", "minimum": 0 },
+        "qe_peak_pct": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+        "notes": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "needs_verification": { "$ref": "#/$defs/needsVerification" },
+        "sources": { "$ref": "#/$defs/sources" }
+      }
+    },
+    "mountType": {
+      "enum": ["gem", "fork_eq", "altaz", "other"],
+      "description": "gem: German equatorial (meridian flips); fork_eq: equatorial fork or wedge (no flip); altaz: alt-azimuth (no flip, field rotation)."
+    },
+    "planningDefaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meridian_flip_after_min": { "type": "number", "minimum": -120, "maximum": 120 },
+        "slew_and_center_overhead_min": { "type": "number", "minimum": 0, "maximum": 60 },
+        "note": { "type": "string" }
+      }
+    },
+    "mount": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type"],
+      "allOf": [{ "$ref": "#/$defs/catalogRules" }],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "manufacturer": { "$ref": "#/$defs/text" },
+        "type": { "$ref": "#/$defs/mountType" },
+        "goto": { "type": "boolean" },
+        "payload_kg": { "$ref": "#/$defs/positiveNumber" },
+        "payload_note": { "type": "string" },
+        "planning_defaults": { "$ref": "#/$defs/planningDefaults" },
+        "notes": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "needs_verification": { "$ref": "#/$defs/needsVerification" },
+        "sources": { "$ref": "#/$defs/sources" }
+      }
+    },
+    "filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "system": { "$ref": "#/$defs/text" },
+        "notes": { "type": "string" }
+      }
+    },
+    "allInOne": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "optics", "sensor", "mount", "control"],
+      "allOf": [{ "$ref": "#/$defs/catalogRules" }],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "manufacturer": { "$ref": "#/$defs/text" },
+        "optics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["aperture_mm", "focal_length_mm"],
+          "properties": {
+            "aperture_mm": { "type": "number", "exclusiveMinimum": 0, "maximum": 10000 },
+            "focal_length_mm": { "type": "number", "exclusiveMinimum": 0, "maximum": 100000 },
+            "design": { "$ref": "#/$defs/text" }
+          }
+        },
+        "sensor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["color", "sensor_px", "pixel_um"],
+          "properties": {
+            "model": { "$ref": "#/$defs/text" },
+            "format": { "$ref": "#/$defs/text" },
+            "color": { "enum": ["mono", "osc"] },
+            "sensor_px": { "$ref": "#/$defs/sensorPx" },
+            "orientation": { "enum": ["portrait", "landscape"] },
+            "pixel_um": { "$ref": "#/$defs/pixelUm" },
+            "pixel_um_inferred": { "type": "boolean" }
+          }
+        },
+        "mount": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "$ref": "#/$defs/mountType" },
+            "meridian_flip": { "type": "boolean" },
+            "note": { "type": "string" }
+          }
+        },
+        "fov_deg_published": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "width": { "$ref": "#/$defs/positiveNumber" },
+            "height": { "$ref": "#/$defs/positiveNumber" },
+            "diagonal": { "$ref": "#/$defs/positiveNumber" }
+          }
+        },
+        "exposure_options_s": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/positiveNumber" } },
+        "builtin_filters": { "type": "array", "items": { "$ref": "#/$defs/text" } },
+        "control": {
+          "enum": ["vendor_app", "ascom_indi"],
+          "description": "vendor_app: controlled only by the manufacturer's app (no Ekos/NINA export); ascom_indi: drivable from Ekos/NINA."
+        },
+        "notes": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "needs_verification": { "$ref": "#/$defs/needsVerification" },
+        "sources": { "$ref": "#/$defs/sources" }
+      }
+    },
+    "preset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "telescope", "camera"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/text" },
+        "telescope": { "$ref": "#/$defs/id" },
+        "camera": { "$ref": "#/$defs/id" },
+        "camera_mode": { "$ref": "#/$defs/id" },
+        "mount": { "$ref": "#/$defs/id" },
+        "filters": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

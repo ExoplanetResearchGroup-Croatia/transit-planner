@@ -1,0 +1,50 @@
+{
+  "name": "transit-planner",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Plan exoplanet transit observations and export schedules for Ekos/KStars and NINA",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "npm run gen:validator && vite",
+    "build": "npm run validate:data && tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "test": "npm run gen:validator && vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "gen:validator": "tsx scripts/gen-validator.ts",
+    "validate:data": "npm run gen:validator && tsx scripts/validate-data.ts",
+    "catalog:build": "tsx scripts/build-catalog.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@photostructure/tz-lookup": "^11.8.0",
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-dropdown-menu": "^2.2.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "@tanstack/react-virtual": "^3.14.26",
+    "aladin-lite": "^3.9.4",
+    "astronomy-engine": "^2.1.19",
+    "lucide-react": "^1.77.0",
+    "lz-string": "^1.5.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "ajv": "^8.20.0",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}

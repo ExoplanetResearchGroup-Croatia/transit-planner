@@ -1,0 +1,7 @@
+Repo: https://github.com/isbeorn/nina (official N.I.N.A. repository; older history also at https://bitbucket.org/Isbeorn/nina, whose last update is 2025-06)
+Branch: develop
+Path: NINA/Sequencer/Examples/Basic Sequence Target.template.json
+Commit: db6b9090acdf27af3e5d9548a7c4231e8572fbb3 (2026-11-20, 'Bump version to 3.3.0.1070')
+Permalink: https://github.com/isbeorn/nina/blob/db6b9090acdf27af3e5d9548a7c4231e8572fbb3/NINA/Sequencer/Examples/Basic%20Sequence%20Target.template.json
+Retrieved: 2026-11-21T22:12:34Z via git clone --depth 1
+Notes: Built-in example template shipped with NINA (TemplateController loads it from NINA/Sequencer/Examples). The file uses pre-module-split (NINA 1.11-era) type names: '..., NINA' assembly suffix, NINA.Model.InputTarget, 'Rotation' instead of PositionAngle, no NegativeDec, ObservableCollection in assembly 'System'. NINA 2.x/3.x still load it through the JsonCreationConverter.GetType() fallback (', NINA' -> ', NINA.Sequencer' / ', NINA.Core' / ', NINA.Astrometry'). Format version: 1.11-era legacy file, still shipped unchanged in 3.2 and the 3.3 nightly.

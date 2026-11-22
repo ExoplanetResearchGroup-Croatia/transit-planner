@@ -1,0 +1,10 @@
+Repo: https://github.com/NickHardy/ExoPlanets
+Path: NINA.Plugin.ExoPlanets/resources/TransitPlanetImagingSequence.json
+Commit (last commit touching file): c2e16d67a4b28404aafe5335f7a9ccb6bbef42c0  (2023-04-02T13:39:52Z)
+Permalink: https://github.com/NickHardy/ExoPlanets/blob/c2e16d67a4b28404aafe5335f7a9ccb6bbef42c0/NINA.Plugin.ExoPlanets/resources/TransitPlanetImagingSequence.json
+Raw: https://raw.githubusercontent.com/NickHardy/ExoPlanets/c2e16d67a4b28404aafe5335f7a9ccb6bbef42c0/NINA.Plugin.ExoPlanets/resources/TransitPlanetImagingSequence.json
+Retrieved: 2026-11-21T22:16:35Z via gh api
+Size: 16686 bytes
+Notes: Official example sequence from the NINA ExoPlanets plugin (author Nick Hardy; repo linked from the plugin manifest in isbeorn/nina.plugin.manifests, manifests/e/ExoPlanets/ExoPlanets.2.2.1.0.manifest.json). Plugin 2.x requires NINA >= 3.1.2.9001.
+Version fingerprint: NINA 2.x format (ObservableCollection in assembly 'System', List in 'mscorlib' = .NET Framework 4.8 build; InputTarget written with 'Rotation'). Full sequence: SequenceRootContainer > StartAreaContainer / TargetAreaContainer (ExoPlanetObjectContainer: Center, SwitchFilter, CalculateExposureTime, WaitForTransit, loop container with TransitCondition + TakeExposure, AutofocusAfterHFRIncrease trigger) / EndAreaContainer. Plugin assembly name here is 'ExoPlanets'.
+Clarification: this file was last changed 2023-04-02, i.e. it predates the plugin's NINA 3 port (commit 'Fixed exoplanet plugin for Nina release 3', 2024-03-24) and was saved by NINA 2.x with a 2.x-era ExoPlanets build. Current plugin releases (2.1.x/2.2.x, GitHub releases since 2025-06) declare MinimumApplicationVersion 3.1.2.9001.

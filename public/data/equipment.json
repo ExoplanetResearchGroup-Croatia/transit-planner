@@ -1,0 +1,217 @@
+{
+  "$schema": "./equipment.schema.json",
+  "schemaVersion": 1,
+  "dataRetrieved": "2026-11-21",
+  "telescopes": [
+    {
+      "id": "celestron-edgehd-8",
+      "name": "Celestron EdgeHD 8",
+      "manufacturer": "Celestron",
+      "design": "Aplanatic Schmidt-Cassegrain",
+      "aperture_mm": 203.2,
+      "focal_length_mm": 2032,
+      "confidence": "high",
+      "notes": "Native f/10. A focal reducer or HyperStar changes focal length; not modelled here.",
+      "sources": [
+        "https://celestron.com/products/edgehd-8-optical-tube-assembly",
+        "https://www.bhphotovideo.com/c/product/644961-REG/Celestron_91030_XLT_EdgeHD_8_Optical_Tube.html"
+      ]
+    },
+    {
+      "id": "celestron-edgehd-11",
+      "name": "Celestron EdgeHD 11",
+      "manufacturer": "Celestron",
+      "design": "Aplanatic Schmidt-Cassegrain",
+      "aperture_mm": 279.4,
+      "focal_length_mm": 2800,
+      "confidence": "high",
+      "notes": "Native f/10.",
+      "sources": [
+        "https://www.celestron.com/products/used-edgehd-11-optical-tube-assembly-cge-dovetail",
+        "https://www.bhphotovideo.com/c/product/645001-REG/Celestron_91050_XLT_EdgeHD_11_Optical_Tube.html"
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "id": "zwo-asi294mm-pro",
+      "name": "ZWO ASI294MM Pro",
+      "manufacturer": "ZWO",
+      "sensor_model": "Sony IMX492 (sold as 4/3\" format, 23.2 mm diagonal)",
+      "color": "mono",
+      "cooled": true,
+      "default_mode": "bin2",
+      "modes": [
+        {
+          "id": "bin2",
+          "label": "Default (Bin2 readout)",
+          "sensor_px": [4144, 2822],
+          "pixel_um": 4.63,
+          "bit_depth": 14,
+          "full_well_e": 66000
+        },
+        {
+          "id": "bin1",
+          "label": "Unlocked Bin1",
+          "sensor_px": [8288, 5644],
+          "pixel_um": 2.3,
+          "bit_depth": 12,
+          "full_well_e": 14000
+        }
+      ],
+      "read_noise_e_min": 1.2,
+      "qe_peak_pct": 90,
+      "confidence": "high",
+      "notes": "Full well and bit depth depend on mode. Retailers quote slightly different full-well values (63.7k to 66.4k e-).",
+      "sources": [
+        "https://www.firstlightoptics.com/zwo/zwo-asi-294mm-pro-usb-30-cooled-mono-camera.html",
+        "https://us.zwoastro.com/products/asi294",
+        "https://go-astronomy.com/cameras/astrophotography-camera.php?ID=964"
+      ]
+    }
+  ],
+  "mounts": [
+    {
+      "id": "skywatcher-eq6-r-pro",
+      "name": "Sky-Watcher EQ6-R Pro SynScan",
+      "manufacturer": "Sky-Watcher",
+      "type": "gem",
+      "goto": true,
+      "payload_kg": 20,
+      "payload_note": "Astrophotography payload, counterweights excluded (20 kg per UK retailers; 44 lb per US retailers).",
+      "planning_defaults": {
+        "meridian_flip_after_min": 5,
+        "slew_and_center_overhead_min": 3,
+        "note": "Defaults chosen for the planner, NOT manufacturer specifications. Adjust to your own setup."
+      },
+      "confidence": "high",
+      "sources": [
+        "https://www.wexphotovideo.com/sky-watcher-eq6-r-pro-skyscan-goto-extra-heavy-duty-equatorial-mount-and-tripod-1625014",
+        "https://www.skywatcherusa.com/products/eq6-R-pro"
+      ]
+    }
+  ],
+  "filters": [
+    { "id": "clear", "name": "Clear / Luminance", "system": "none" },
+    { "id": "johnson-v", "name": "V (Johnson)", "system": "Johnson-Cousins" },
+    { "id": "cousins-rc", "name": "Rc (Cousins)", "system": "Johnson-Cousins" },
+    { "id": "cousins-ic", "name": "Ic (Cousins)", "system": "Johnson-Cousins" },
+    { "id": "sloan-g", "name": "g' (Sloan)", "system": "Sloan" },
+    { "id": "sloan-r", "name": "r' (Sloan)", "system": "Sloan" },
+    { "id": "sloan-i", "name": "i' (Sloan)", "system": "Sloan" },
+    { "id": "exoplanet-bb", "name": "Exoplanet broadband (e.g. Astrodon ExoPlanet-BB)", "system": "custom" }
+  ],
+  "all_in_one": [
+    {
+      "id": "zwo-seestar-s50",
+      "name": "ZWO Seestar S50",
+      "manufacturer": "ZWO",
+      "optics": { "aperture_mm": 50, "focal_length_mm": 250, "design": "APO triplet with ED glass" },
+      "sensor": {
+        "model": "Sony IMX462",
+        "format": "1/2.8\"",
+        "color": "osc",
+        "sensor_px": [1080, 1920],
+        "orientation": "portrait",
+        "pixel_um": 2.9
+      },
+      "mount": { "type": "altaz", "meridian_flip": false },
+      "fov_deg_published": { "width": 0.73, "height": 1.29 },
+      "control": "vendor_app",
+      "confidence": "high",
+      "notes": "Alt-az mount: field rotation limits sub-exposure length and complicates photometry near the zenith.",
+      "sources": [
+        "https://zwoastro.com/product/seestar-s50/",
+        "https://www.seestar.com/it/collections/s50-series-smart-telescope/products/seestar-s50",
+        "https://www.physics.drexel.edu/~steinberg/astro4/SeeStar/__general/seestar%20specs.txt"
+      ]
+    },
+    {
+      "id": "zwo-seestar-s50-pro",
+      "name": "ZWO Seestar S50 Pro",
+      "manufacturer": "ZWO",
+      "optics": { "aperture_mm": 50, "focal_length_mm": 260, "design": "APO quadruplet with ED glass" },
+      "sensor": {
+        "model": "not published by ZWO (telephoto camera)",
+        "format": "1/1.2\"",
+        "color": "osc",
+        "sensor_px": [2160, 3840],
+        "orientation": "portrait",
+        "pixel_um": 2.9,
+        "pixel_um_inferred": true
+      },
+      "mount": { "type": "altaz", "meridian_flip": false },
+      "fov_deg_published": { "diagonal": 2.8 },
+      "control": "vendor_app",
+      "confidence": "medium",
+      "needs_verification": ["sensor model", "pixel size"],
+      "notes": "Pixel size is NOT published; 2.9 um is inferred because 3840x2160 at 2.9 um on 260 mm gives a 2.8 deg diagonal, matching the published FOV. One retailer lists a different telephoto sensor and a 60 mm focal length, which contradicts the 260 mm figure from other sources (likely a typo). Verify against the manual before relying on it. The wide-angle camera is irrelevant for transit work.",
+      "sources": [
+        "https://camerajabber.com/photography-news/zwo-seestar-s50-pro-fixes-the-smart-telescopes-biggest-weakness/",
+        "https://skiesandscopes.com/seestar-s50-pro-vs-seestar-s50/",
+        "https://www.bhphotovideo.com/c/product/1990929-REG/.html"
+      ]
+    },
+    {
+      "id": "zwo-seestar-s30",
+      "name": "ZWO Seestar S30",
+      "manufacturer": "ZWO",
+      "optics": { "aperture_mm": 30, "focal_length_mm": 150, "design": "APO triplet with ED glass" },
+      "sensor": {
+        "model": "Sony IMX662",
+        "format": "1/2.8\"",
+        "color": "osc",
+        "sensor_px": [1080, 1920],
+        "orientation": "portrait",
+        "pixel_um": 2.9
+      },
+      "mount": { "type": "altaz", "meridian_flip": false },
+      "fov_deg_published": { "diagonal": 2.46 },
+      "exposure_options_s": [10, 20, 30],
+      "builtin_filters": ["UV/IR-cut", "Duo-band (OIII 30 nm / Ha 20 nm)", "Dark"],
+      "control": "vendor_app",
+      "confidence": "high",
+      "notes": "Published 2.46 deg is the frame diagonal. Actual frame is about 2.13 x 1.20 deg. Stacking exposure options are as listed in the S30 specification.",
+      "sources": [
+        "https://www.adorama.com/zwsss30.html",
+        "https://astronomyplus.com/products/zwo-seestar-s30-all-in-one-apo-smart-telescope-s30",
+        "https://www.physics.drexel.edu/~steinberg/astro4/SeeStar/__general/seestar%20specs.txt"
+      ]
+    },
+    {
+      "id": "zwo-seestar-s30-pro",
+      "name": "ZWO Seestar S30 Pro",
+      "manufacturer": "ZWO",
+      "optics": { "aperture_mm": 30, "focal_length_mm": 160, "design": "APO quadruplet with ED glass" },
+      "sensor": {
+        "model": "Sony IMX585",
+        "format": "1/1.2\"",
+        "color": "osc",
+        "sensor_px": [2160, 3840],
+        "orientation": "portrait",
+        "pixel_um": 2.9
+      },
+      "mount": { "type": "altaz", "meridian_flip": false, "note": "Equatorial tracking is possible with a wedge." },
+      "fov_deg_published": { "diagonal": 4.6 },
+      "control": "vendor_app",
+      "confidence": "high",
+      "notes": "Published 4.6 deg is the frame diagonal. Pixel size comes from two secondary sources (review sites); optics and sensor model are on retailer spec sheets.",
+      "sources": [
+        "https://www.adorama.com/zwseestar.html",
+        "https://astrobackyard.com/seestar-s30-pro-review/",
+        "https://www.skyatnightmagazine.com/reviews/zwo-seestar-s30-pro"
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "id": "edgehd8-asi294mm-eq6r",
+      "name": "EdgeHD 8 + ASI294MM Pro on EQ6-R Pro",
+      "telescope": "celestron-edgehd-8",
+      "camera": "zwo-asi294mm-pro",
+      "camera_mode": "bin2",
+      "mount": "skywatcher-eq6-r-pro",
+      "filters": ["clear", "johnson-v", "cousins-rc", "cousins-ic"]
+    }
+  ]
+}
